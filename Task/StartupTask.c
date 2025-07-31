@@ -247,36 +247,38 @@ void main_task(void *pvParameters)
 		{
 			//第二问先进行开环转动一段距离到靶纸上再进行定位
 			//可以直接将摄像头对准靶纸，取消这部分开环转动
-			if(yuntai_flag == 0)  
-			{
 			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
-		    vTaskDelay(10);
+// 			if(yuntai_flag == 0)  
+// 			{
+// 			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
+// 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
+// 		    vTaskDelay(10);
 			
-			if(YunTai_EN == 1)  //第二问给的初始位置
-			{
-			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_1_INST);
-			vTaskDelay(10);
-//			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST);
-			vTaskDelay(10);
-//			POS_Control(30 , 5*256, PITCH);
-//			vTaskDelay(100);	
-			POS_Control(-30 , 50*256, YAW);
-			vTaskDelay(10);
-			POS_Control(30 , 5*256, PITCH);
-			vTaskDelay(350);
-			yuntai_flag = 1;
-			}
+// 			if(YunTai_EN == 1)  //第二问给的初始位置
+// 			{
+// 			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_1_INST);
+// 			vTaskDelay(10);
+// //			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST);
+// 			vTaskDelay(10);
+// //			POS_Control(30 , 5*256, PITCH);
+// //			vTaskDelay(100);	
+// 			POS_Control(-30 , 50*256, YAW);
+// 			vTaskDelay(10);
+// 			POS_Control(30 , 5*256, PITCH);
+// 			vTaskDelay(350);
+// 			yuntai_flag = 1;
+// 			}
 
-//			if(YunTai_EN == 3)  //第四问给的初始位置
-//			{
-//			POS_Control(-30 , 70*256, YAW);
-//			POS_Control(30 , 5*256, PITCH);
-//			vTaskDelay(1000);
-//			yuntai_flag = 1;
-//			}				
+// //			if(YunTai_EN == 3)  //第四问给的初始位置
+// //			{
+// //			POS_Control(-30 , 70*256, YAW);
+// //			POS_Control(30 , 5*256, PITCH);
+// //			vTaskDelay(1000);
+// //			yuntai_flag = 1;
+// //			}				
 
-			}	
+// 			}	
 			
 			//如果摄像头识别到目标则开始运行
 			Camera_flag=0;
