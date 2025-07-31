@@ -3,15 +3,15 @@
 
 #include "main.h"                  // Device header
 
-#define SPEED    3000            //直线速度
-#define GAIN     1000             //偏差增益
+#define SPEED    2000            //直线速度
+#define GAIN     750             //偏差增益
 #define GAIN_K   2               //大角度偏差增益
 
 #define TURN_SPEED    1600            //旋转速度
 #define LEFT_OR        -1             //左旋转
 #define RIGHT_OR        1             //右旋转
 
-#define MOTOR_Line        1           //巡线模式
+#define MOTOR_Line        1           //巡线模							式
 #define MOTOR_TURN        2           //旋转模式
 
 extern struct PID Serx,Sery;

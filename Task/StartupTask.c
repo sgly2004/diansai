@@ -426,7 +426,7 @@ void line_task(void *pvParameters)
 	{
 		Line_Control();
 	//car_go_dir由菜单中的按键决定，是1-5圈，一圈的编码器计数大概24000
-	if(distance > (car_go_dir*24000) )  
+	if(distance > (car_go_dir*1200000) )  
 	{
 		Motor_Write(0,0);
 		while (1) vTaskDelay(10);
@@ -454,7 +454,7 @@ void OLED_task(void *pvParameters)
 //		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
 //		OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
 //		OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
-//		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
+		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
 //		OLED_Write(0,2,16,"x:%d y:%d  ", JiGuang[0], JiGuang[1]);
 //		OLED_Write(0,4,16,"fps :%d  ", (int)KEY1);
 //		OLED_Write(0,6,16,"d:%d  ", distance);
