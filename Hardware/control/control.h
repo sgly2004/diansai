@@ -4,6 +4,7 @@
 #include "main.h"                  // Device header
 
 #define SPEED    2000            //直线速度
+#define SPEED_UP    2500            //直线速度
 #define GAIN     750             //偏差增益
 #define GAIN_K   2               //大角度偏差增益
 

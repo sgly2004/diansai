@@ -141,24 +141,24 @@ void Line_Control(void)
 {
 	Get_hw();	
     if(Line[3] == 0){
-	
-	vTaskDelay(80);
-//	while (HW_IO3 == 0) vTaskDelay(2);
-	Motor_Write(SPEED,-1);
-	while (HW_IO3 == 1) vTaskDelay(2);
-	vTaskDelay(100);
+		vTaskDelay(80);
+	//	while (HW_IO3 == 0) vTaskDelay(2);
+		Motor_Write(SPEED_UP,-1);
+		while (HW_IO3 == 1) vTaskDelay(100);
+		vTaskDelay(50);
 	}
 	
     else if(Line[0] == 0){
 	vTaskDelay(80);
 //	while (HW_IO2 == 0) vTaskDelay(2);
-	Motor_Write(-1,SPEED);	
-	while (HW_IO2 == 1) vTaskDelay(2);
-	vTaskDelay(100);
+	Motor_Write(-1,SPEED_UP);	
+	while (HW_IO2 == 1) vTaskDelay(100);
+	vTaskDelay(50);
 	}       
+
 	else if(Line[2] == 0) 		Motor_Write(SPEED,SPEED-GAIN);
 	else if(Line[1] == 0) 	    Motor_Write(SPEED-GAIN,SPEED);
-	else 					    Motor_Write(SPEED,SPEED+100);
+	else 					    Motor_Write(SPEED,SPEED);
 }
 
 //void Line_Control(void)
