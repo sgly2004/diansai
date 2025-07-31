@@ -3,9 +3,9 @@
 
 #include "main.h"                  // Device header
 
-#define SPEED    3000            //直线速度
-#define GAIN     1000             //偏差增益
-#define GAIN_K   2               //大角度偏差增益
+#define SPEED    1500            //直线速度
+#define GAIN     650             //偏差增益
+#define GAIN_K   3               //大角度偏差增益
 
 #define TURN_SPEED    1600            //旋转速度
 #define LEFT_OR        -1             //左旋转

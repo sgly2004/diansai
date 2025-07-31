@@ -426,7 +426,7 @@ void line_task(void *pvParameters)
 	{
 		Line_Control();
 	//car_go_dir由菜单中的按键决定，是1-5圈，一圈的编码器计数大概24000
-	if(distance > (car_go_dir*24000) )  
+	if(distance > (car_go_dir*1200000) )  
 	{
 		Motor_Write(0,0);
 		while (1) vTaskDelay(10);
@@ -435,7 +435,7 @@ void line_task(void *pvParameters)
 	}
 	else
 	{
-		vTaskDelay(20);
+		vTaskDelay(5);
 	}
 		
 		

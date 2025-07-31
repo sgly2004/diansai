@@ -1,0 +1,554 @@
+Dependencies for Project 'xf', Target 'xf': (DO NOT MODIFY !)
+CompilerVersion: 6220000::V6.22::ARMCLANG
+F (..\lib\ti\driverlib\dl_adc12.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_adc12.o -MMD)
+F (..\lib\ti\driverlib\dl_aes.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_aes.o -MMD)
+F (..\lib\ti\driverlib\dl_aesadv.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_aesadv.o -MMD)
+F (..\lib\ti\driverlib\dl_common.c)(0x667FEDEE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_common.o -MMD)
+F (..\lib\ti\driverlib\dl_crc.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_crc.o -MMD)
+F (..\lib\ti\driverlib\dl_crcp.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_crcp.o -MMD)
+F (..\lib\ti\driverlib\dl_dac12.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_dac12.o -MMD)
+F (..\lib\ti\driverlib\dl_dma.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_dma.o -MMD)
+F (..\lib\ti\driverlib\dl_flashctl.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_flashctl.o -MMD)
+F (..\lib\ti\driverlib\dl_i2c.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_i2c.o -MMD)
+F (..\lib\ti\driverlib\dl_keystorectl.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_keystorectl.o -MMD)
+F (..\lib\ti\driverlib\dl_lcd.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_lcd.o -MMD)
+F (..\lib\ti\driverlib\dl_lfss.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_lfss.o -MMD)
+F (..\lib\ti\driverlib\dl_mathacl.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_mathacl.o -MMD)
+F (..\lib\ti\driverlib\dl_mcan.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_mcan.o -MMD)
+F (..\lib\ti\driverlib\dl_opa.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_opa.o -MMD)
+F (..\lib\ti\driverlib\dl_rtc_common.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_rtc_common.o -MMD)
+F (..\lib\ti\driverlib\dl_spi.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_spi.o -MMD)
+F (..\lib\ti\driverlib\dl_timer.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_timer.o -MMD)
+F (..\lib\ti\driverlib\dl_trng.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_trng.o -MMD)
+F (..\lib\ti\driverlib\dl_uart.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_uart.o -MMD)
+F (..\lib\ti\driverlib\dl_vref.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_vref.o -MMD)
+F (..\lib\ti\driverlib\m0p\dl_interrupt.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_interrupt.o -MMD)
+F (..\lib\ti\driverlib\m0p\sysctl\dl_sysctl_mspm0g1x0x_g3x0x.c)(0x66631CE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/dl_sysctl_mspm0g1x0x_g3x0x.o -MMD)
+F (..\lib\ti\driverlib\lib\keil\m0p\mspm0g1x0x_g3x0x\driverlib.a)(0x66631CE6)()
+F (..\user\main.c)(0x688A1562)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/main.o -MMD)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\user\ti_msp_dl_config.c)(0x688BED55)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/ti_msp_dl_config.o -MMD)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+F (..\user\ti_msp_dl_config.h)(0x688BE31D)()
+F (..\user\main.h)(0x68890075)()
+F (..\user\main.syscfg)(0x688BED55)()
+F (..\lib\ti\devices\msp\m0p\startup_system_files\keil\startup_mspm0g350x_uvision.s)(0x68594A5A)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__MICROLIB SETA 1"-Wa,armasm,--pd,"__UVISION_VERSION SETA 540" -Wa,armasm,--pd,"__MSPM0G3507__ SETA 1"-o ./objects/startup_mspm0g350x_uvision.o)
+F (..\FreeRTOS\croutine.c)(0x64020E50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/croutine.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\croutine.h)(0x64020E50)
+F (..\FreeRTOS\event_groups.c)(0x64020E50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/event_groups.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\timers.h)(0x64020E50)
+I (..\FreeRTOS\include\event_groups.h)(0x64020E50)
+F (..\FreeRTOS\list.c)(0x64020E50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/list.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+F (..\FreeRTOS\queue.c)(0x64020E50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/queue.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+F (..\FreeRTOS\readme.txt)(0x5238100C)()
+F (..\FreeRTOS\tasks.c)(0x667D341E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/tasks.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\timers.h)(0x64020E50)
+I (..\FreeRTOS\include\stack_macros.h)(0x64020E50)
+F (..\FreeRTOS\timers.c)(0x64020E50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/timers.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\FreeRTOS\include\timers.h)(0x64020E50)
+F (..\FreeRTOS\portable\MemMang\heap_4.c)(0x6665A024)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/heap_4.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+F (..\FreeRTOS\portable\ARM_CM0\port.c)(0x64020E50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/port.o -MMD)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+F (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)()
+F (..\Task\StartupTask.c)(0x688BF0E7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/startuptask.o -MMD)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\ws2812\ws2812b.c)(0x685943F7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/ws2812b.o -MMD)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)()
+F (..\Hardware\UART\UART.c)(0x68849684)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/uart.o -MMD)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\UART\UART.h)(0x68849689)()
+F (..\Hardware\servo\servo.c)(0x688BE31D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/servo.o -MMD)
+I (..\Hardware\servo\servo.h)(0x6884CDC6)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\servo\servo.h)(0x6884CDC6)()
+F (..\Hardware\oled\oled.c)(0x688985B6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/oled.o -MMD)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+I (..\Hardware\oled\OLED_Font.h)(0x685950FE)
+F (..\Hardware\oled\oled.h)(0x6884BF76)()
+F (..\Hardware\oled\OLED_Font.h)(0x685950FE)()
+F (..\Hardware\Motor\Motor.c)(0x68846637)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/motor.o -MMD)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\Motor\Motor.h)(0x688457CB)()
+F (..\Hardware\LED_Key\LED_Key.c)(0x688BE31D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/led_key.o -MMD)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)()
+F (..\Hardware\Enconder\Enconder.c)(0x688A066F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/enconder.o -MMD)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)()
+F (..\Hardware\delay\delay.c)(0x6884E32F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/delay.o -MMD)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\delay\delay.h)(0x6884E17E)()
+F (..\Hardware\control\control.c)(0x688BF448)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/control.o -MMD)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\MaixCam\MaixCam.c)(0x6889BF6C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/maixcam.o -MMD)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+F (..\Hardware\YunQue\YunQue.c)(0x6889BCE3)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/yunque.o -MMD)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+F (..\Hardware\Emm_V5\Emm_V5.c)(0x6889EBB8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/emm_v5.o -MMD)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)
+I (..\BSP\UART\bsp_uart.h)(0x66A26A06)
+F (..\BSP\UART\bsp_uart.c)(0x68896CFB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -w -I ../lib/ti/CMSIS -I ../FreeRTOS -I ../FreeRTOS/include -I ../user -I ../FreeRTOS/portable/ARM_CM0 -I ../Task -I ../Hardware/ws2812 -I ../Hardware/UART -I ../Hardware/Timer -I ../Hardware/servo -I ../Hardware/PID -I ../Hardware/oled -I ../Hardware/Motor -I ../Hardware/LED_Key -I ../Hardware/Enconder -I ../Hardware/IMU -I ../Hardware/delay -I ../Hardware/control -I ../Hardware/MaixCam -I ../Hardware/YunQue -I ../Hardware/Emm_V5 -I ../BSP/UART-D__UVISION_VERSION="540" -D__MSPM0G3507__ -D__MSPM0G3507__-o ./objects/bsp_uart.o -MMD)
+I (..\BSP\UART\bsp_uart.h)(0x66A26A06)
+I (..\user\main.h)(0x68890075)
+I (..\user\ti_msp_dl_config.h)(0x688BE31D)
+I (..\FreeRTOS\include\FreeRTOS.h)(0x666597A0)
+I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x688AFFE1)
+I (..\FreeRTOS\include\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\include\portable.h)(0x64020E50)
+I (..\FreeRTOS\include\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\portable\ARM_CM0\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\include\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\include\task.h)(0x64020E50)
+I (..\FreeRTOS\include\list.h)(0x667BB9E4)
+I (..\FreeRTOS\include\queue.h)(0x64020E50)
+I (..\Task\StartupTask.h)(0x688A0C3F)
+I (..\Hardware\delay\delay.h)(0x6884E17E)
+I (..\Hardware\LED_Key\LED_Key.h)(0x688BED55)
+I (..\Hardware\IMU\IMU.h)(0x6854BC6C)
+I (..\Hardware\UART\UART.h)(0x68849689)
+I (..\Hardware\Emm_V5\Emm_V5.h)(0x68897D47)
+I (..\Hardware\Timer\Timer.h)(0x669A1ABA)
+I (..\Hardware\Enconder\Enconder.h)(0x6889FBD3)
+I (..\Hardware\Motor\Motor.h)(0x688457CB)
+I (..\Hardware\oled\oled.h)(0x6884BF76)
+I (..\Hardware\servo\Servo.h)(0x6884CDC6)
+I (..\Hardware\ws2812\ws2812b.h)(0x6854BC6C)
+I (..\Hardware\control\control.h)(0x688BF45B)
+I (..\Hardware\MaixCam\MaixCam.h)(0x6889BEE5)
+I (..\Hardware\YunQue\YunQue.h)(0x6888FFD5)

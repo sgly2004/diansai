@@ -85,7 +85,58 @@
 
 ---
 
-接下来，整理文档，并且将我的原始输入也记录下来：菜单在 @Hardware\control\control.c                                               │
-│   ，key1是左边按键，key2是右边按键。key1选择题目，key2进一步选择，然后同理进入下一级菜单选择（这里需要补充每个子菜单都能   │
-│   选什么）。由于我们的装置主要由云台和小车组成，因此这里用了两个变量：Line_EN和YunTai_EN来标志每个模块需要执行的任务。     │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────
+接下来，整理文档，并且将我的原始输入也记录下来：菜单在 @Hardware\control\control.c，key1是左边按键，key2是右边按键。key1选择题目，key2进一步选择，然后同理进入下一级菜单选择（这里需要补充每个子菜单都能选什么）。由于我们的装置主要由云台和小车组成，因此这里用了两个变量：Line_EN和YunTai_EN来标志每个模块需要执行的任务。
+这里如果没有效果，需要提醒我按键的返回值是0还是1。
+
+
+StartupTask.c里面的显示屏线程是被注释了，用于打印调试信息，你需要告诉我现在能打印哪些调试信息。（前面四个应该是测试四个单独的灰度传感器是否正常）
+下面有编码器的值（distance的单位应该是编码器的值，而不是空间距离）
+
+StartupTask.c里面的line_task线程即循迹功能，调用control.c中的循迹部分。
+循迹部分的硬件定义在了LED_Key.h，用了宏定义。你需要根据这里，去找ti_msp_dl_config.h，然后给一个具体的引脚。
+#define HW_IO1 				(!DL_GPIO_readPins(HW_PORT ,HW_HW1_PIN))
+#define HW_IO2 				(!DL_GPIO_readPins(HW_PORT ,HW_HW2_PIN))
+#define HW_IO3 				(!DL_GPIO_readPins(HW_PORT ,HW_HW3_PIN))
+#define HW_IO4 				(!DL_GPIO_readPins(HW_PORT ,HW_HW4_PIN))
+这里如果没有效果，需要提醒我灰度传感器的返回值是0还是1。
+当前的灰度传感器默认返回值为1，遇到障碍物为0.
+电机部分的控制放到了Motor.c中的Motor_Write这个函数，这个函数对外封装，如果电机旋转方向不对，需要换motor1和2的参数位置，默认正数是正转，如果选择方向相反，那么可以对compare取反。
+巡线的部分在control.c，此时mode是MOTOR_Line，调用Line_Control()函数，这里用SPEED和GAIN来控制偏移多少（偏移调不过来就加大，大幅度摇摆就减小）。
+
+StartupTask.c里面的main_task主要控制云台转动，
+当前第二位的思路是先归零，后转动到一个固定初始角度，实际上这里允许自由摆放，所以直接让激光笔对准靶纸即可。
+小车运动过程中不需要pid，但是云台部分用到了pid。
+如果摄像头识别到了目标，那么Camera_flag就会被置为1，这部分通过中断实现，而不需要在task中写。具体体现在MaixCam.c中。
+识别到了之后，计算err，然后再得到的偏差之后加补偿，最后做限位，然后控制步进转动。
+pid的代码在control.c，其中可以设置x和y的p、d。
+任务三和二的区别就是，三需要设置一下扫描方向。
+
+
+硬件接线记录：
+
+
+- 按钮
+
+
+
+当前循迹依靠的是LED_Key.h中定义需要读取的引脚，
+#define HW_IO1 				(!DL_GPIO_readPins(HW_PORT ,HW_HW1_PIN))
+#define HW_IO2 				(!DL_GPIO_readPins(HW_PORT ,HW_HW2_PIN))
+#define HW_IO3 				(!DL_GPIO_readPins(HW_PORT ,HW_HW3_PIN))
+#define HW_IO4 				(!DL_GPIO_readPins(HW_PORT ,HW_HW4_PIN))
+然后在control.c中读取，
+void Get_hw(void)
+{
+	Line[0] = HW_IO1;
+	Line[1] = HW_IO2;
+	Line[2] = HW_IO3;
+	Line[3] = HW_IO4;
+}
+最后在void Line_Control(void)中通过Get_hw获取到line数组，基于此进行速度控制。
+现在，我希望换一个引脚读取方式，读取到的数据还是赋值到line数组中，后面的巡线逻辑不变。
+新的灰度传感器通过三路地址线寻址，然后一路信号线输出，需要轮询每一路。
+我们只需要寻址2、3、6、7的信号，这三路的地址，从大到小（AD2到AD0）为001、010、101、110。
+你可以通过宏定义来作为存储这几个信号的变量，然后实时读取。
+@ No_Mcu_Ganv_Grayscale_Sensor 中是你可以使用和参考的函数。
+同时我们的使能悬空（悬空默认是有使能的），所以不需要定义使能引脚。
+除了修改代码之外，需要思考是否仍然使用原来的四个gpio引脚来作为信号线和地址线，是否需要上下拉电阻或其他设置？
