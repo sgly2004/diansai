@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "led_key.h": "c",
+        "main.h": "c",
+        "startuptask.h": "c",
+        "freertos.h": "c",
+        "control.h": "c",
+        "motor.h": "c",
+        "maixcam.h": "c",
+        "oled.h": "c",
+        "type_traits": "c",
+        "ti_msp_dl_config.h": "c"
+    }
+}
