@@ -205,6 +205,7 @@ int car_go_dir = 1; 			//第一问圈数
 int yutai_3_init_falg = 1; 		//第三问中云台转向标志
 int open_line_falg = 0; 		//第四问开始巡线的标志
 int location_err_falg = 0; 		//云台追踪误差小于计数位
+int uart1_origin_done = 0;		//UART1回零完成标志
 
 //主逻辑任务
 void main_task(void *pvParameters)
