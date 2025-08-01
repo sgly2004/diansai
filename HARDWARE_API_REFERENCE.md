@@ -231,8 +231,8 @@ extern struct PID Serx, Sery;    // X轴和Y轴PID控制器
 
 ### 外部常量定义
 ```c
-#define SPEED         1700    // 直线速度
-#define GAIN          600     // 偏差增益
+#define SPEED         1500    // 直线速度
+#define GAIN          500     // 偏差增益
 #define TURN_SPEED    1600    // 旋转速度
 #define MOTOR_Line    1       // 巡线模式
 #define MOTOR_TURN    2       // 旋转模式

@@ -150,7 +150,6 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
@@ -209,6 +208,11 @@
           <count>10</count>
           <WinNumber>1</WinNumber>
           <ItemText>distance</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Line</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

@@ -380,8 +380,8 @@ void main_task(void *pvParameters)
 			if(yuntai_flag == 1)  
 			{
 			//右运动		
-			if(yutai_3_init_falg == 1)  Speed_Control(10, YAW);
-			else if(yutai_3_init_falg == 2)  Speed_Control(-10, YAW);
+			if(yutai_3_init_falg == 1)  Speed_Control(5, YAW);
+			else if(yutai_3_init_falg == 2)  Speed_Control(-5, YAW);
 			yuntai_flag = 2;	
 			}
 			
@@ -473,9 +473,9 @@ void OLED_task(void *pvParameters)
 	{
 
 		//用法：0(0-127)行0(0-7)列，字体大小16，后面的用法参考printf，通过%d，%f等进行打印数据
-//		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
-//		OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
-//		OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
+		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
+		OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
+		OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
 //		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
 //		OLED_Write(0,2,16,"x:%d y:%d  ", JiGuang[0], JiGuang[1]);
 //		OLED_Write(0,4,16,"fps :%d  ", (int)KEY1);
