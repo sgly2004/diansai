@@ -7,11 +7,11 @@ struct PID Serx,Sery;
 //位置式PID参数
 void PID_Init(void)
 {
-	Serx.kp=-0.05;//-0.15;
-	Serx.kd=-0.1;
+	Serx.kp=-0.02;//-0.15;
+	Serx.kd=-0.05;
 	
-	Sery.kp=-0.05;
-	Sery.kd=-0.1;
+	Sery.kp=-0.02;
+	Sery.kd=-0.05;
 }
 
 void Set_PID_1(void)
@@ -141,21 +141,20 @@ void Line_Control(void)
 {
 	Get_hw();	
     if(Line[3] == 0){
-		vTaskDelay(60);
+		vTaskDelay(80);
 	//	while (HW_IO3 == 0) vTaskDelay(2);
 		Motor_Write(SPEED_UP,-1);
-		vTaskDelay(100);
-		while (HW_IO3 == 1) vTaskDelay(80);
-		vTaskDelay(80);
+		while (HW_IO3 == 1) vT
+			askDelay(100);
+		vTaskDelay(50);
 	}
 	
     else if(Line[0] == 0){
 	vTaskDelay(80);
 //	while (HW_IO2 == 0) vTaskDelay(2);
 	Motor_Write(-1,SPEED_UP);	
-	vTaskDelay(100);
-	while (HW_IO2 == 1) vTaskDelay(50);
-	vTaskDelay(80);
+	while (HW_IO2 == 1) vTaskDelay(100);
+	vTaskDelay(50);
 	}       
 
 	else if(Line[2] == 0) 		Motor_Write(SPEED,SPEED-GAIN);
