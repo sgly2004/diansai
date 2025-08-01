@@ -14,8 +14,8 @@ void GPIO_WriteBit(GPIO_Regs* gpio, uint32_t pins,uint8_t Value);
 
 #define BUZZER(x)			do{GPIO_WriteBit(BUZZER_PORT,BUZZER_PIN_0_PIN,x);}while(0); 
 
-#define KEY1 				(!DL_GPIO_readPins(KEY1_PORT ,KEY1_PIN_21_PIN))==0
-#define KEY2 				(!DL_GPIO_readPins(KEY1_PORT ,KEY1_PIN_22_PIN))==0
+#define KEY1 				(!DL_GPIO_readPins(KEY1_PORT ,KEY1_PIN_21_PIN))
+#define KEY2 				(!DL_GPIO_readPins(KEY1_PORT ,KEY1_PIN_22_PIN))
 //#define KEY3 				!DL_GPIO_readPins(KEY_PORT ,KEY_KEY_YELLOW_PIN)
 
 #define HW_IO1 				(!DL_GPIO_readPins(HW_PORT ,HW_HW1_PIN))

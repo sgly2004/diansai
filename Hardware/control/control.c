@@ -7,11 +7,11 @@ struct PID Serx,Sery;
 //位置式PID参数
 void PID_Init(void)
 {
-	Serx.kp=-0.2;//-0.15;
-	Serx.kd=-0.7;
+	Serx.kp=-0.02;//-0.15;
+	Serx.kd=-0.05;
 	
-	Sery.kp=-0.05;
-	Sery.kd=-0.15;
+	Sery.kp=-0.02;
+	Sery.kd=-0.05;
 }
 
 void Set_PID_1(void)

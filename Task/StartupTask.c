@@ -247,8 +247,7 @@ void main_task(void *pvParameters)
 		{
 			//第二问先进行开环转动一段距离到靶纸上再进行定位
 			//可以直接将摄像头对准靶纸，取消这部分开环转动
-			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
-	        Emm_V5_En_Control(1, true, false, UART_0_INST);
+
 // 			if(yuntai_flag == 0)  
 // 			{
 // 			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
@@ -281,11 +280,21 @@ void main_task(void *pvParameters)
 // 			}	
 			
 			//如果摄像头识别到目标则开始运行
+			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
+	        Emm_V5_En_Control(1, true, false, UART_0_INST);
+			// OLED_Write(0,8,16,"not return");
+			// vTaskDelay(100);
+			// Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST)0;
+			// vTaskDelay(100);
+
+			OLED_Write(0,8,16,"wait!");
 			Camera_flag=0;
 			while(!Camera_flag) vTaskDelay(2);
 							
 			err_cx = JiGuang[0] - Greenx;
 			err_cy = JiGuang[1] - Greeny;
+			OLED_Write(0,8,16,"x :%d  ", JiGuang[0]);
+			OLED_Write(0,10,16,"y :%d  ", JiGuang[1]);
 
 			Erect_pid(&Serx,JiGuang[0],Greenx);
 			Erect_pid(&Sery,JiGuang[1],Greeny);
@@ -310,6 +319,9 @@ void main_task(void *pvParameters)
 //			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
 			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
 			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
+
+			OLED_Write(0,12,16,"YAW :%d  ", Serx.out);
+			OLED_Write(0,14,16,"PITCH :%d  ", Sery.out);
 			
 			Speed_Control(Serx.out , YAW);
 			Speed_Control(Sery.out , PITCH);
@@ -317,6 +329,8 @@ void main_task(void *pvParameters)
 //			{
 //			 Speed_Control(Serx.out - 1 , YAW);
 //			}
+
+		// while(1) vTaskDelay(10);
 			
 			
 		if(YunTai_EN == 3)  //第四问
@@ -454,7 +468,7 @@ void OLED_task(void *pvParameters)
 //		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
 //		OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
 //		OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
-		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
+//		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
 //		OLED_Write(0,2,16,"x:%d y:%d  ", JiGuang[0], JiGuang[1]);
 //		OLED_Write(0,4,16,"fps :%d  ", (int)KEY1);
 //		OLED_Write(0,6,16,"d:%d  ", distance);
