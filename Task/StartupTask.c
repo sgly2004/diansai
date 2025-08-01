@@ -1,170 +1,170 @@
 #include "StartupTask.h"
 
-#define START_TASK_PRIO 10  						//ÈÎÎñÓÅÏÈ¼¶
-#define START_STK_SIZE 1024 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t StartTask_Handler; 	//ÈÎÎñ¾ä±ú
+#define START_TASK_PRIO 10  						//ä»»åŠ¡ä¼˜å…ˆçº§
+#define START_STK_SIZE 1024 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t StartTask_Handler; 	//ä»»åŠ¡å¥æŸ„
 
-#define RGB_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define RGB_STK_SIZE 512 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t RGBTask_Handler; 	//ÈÎÎñ¾ä
+#define RGB_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define RGB_STK_SIZE 512 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t RGBTask_Handler; 	//ä»»åŠ¡å¥
 void RGB_task(void *pvParameters);
 
-#define OLED_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define OLED_STK_SIZE 512 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t OLEDTask_Handler; 	//ÈÎÎñ¾ä
+#define OLED_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define OLED_STK_SIZE 512 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t OLEDTask_Handler; 	//ä»»åŠ¡å¥
 void OLED_task(void *pvParameters);
 
-#define main_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define main_STK_SIZE 512 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t mainTask_Handler; 	//ÈÎÎñ¾ä
+#define main_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define main_STK_SIZE 512 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t mainTask_Handler; 	//ä»»åŠ¡å¥
 void main_task(void *pvParameters);
 
-#define line_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define line_STK_SIZE 128 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t lineTask_Handler; 	//ÈÎÎñ¾ä
+#define line_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define line_STK_SIZE 128 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t lineTask_Handler; 	//ä»»åŠ¡å¥
 void line_task(void *pvParameters);
 
-#define Set0_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define Set0_STK_SIZE 256 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t Set0Task_Handler; 	//ÈÎÎñ¾ä
+#define Set0_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define Set0_STK_SIZE 256 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t Set0Task_Handler; 	//ä»»åŠ¡å¥
 void Set0_task(void *pvParameters);
 
-#define Circle_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define Circle_STK_SIZE 256 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t Circle_Task_Handler; 	//ÈÎÎñ¾ä
+#define Circle_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define Circle_STK_SIZE 256 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t Circle_Task_Handler; 	//ä»»åŠ¡å¥
 void circle_task(void *pvParameters);
 
-#define QEI_TASK_PRIO 6  							//ÈÎÎñÓÅÏÈ¼¶
-#define QEI_STK_SIZE 128 							//ÈÎÎñ¶ÑÕ»
-static TaskHandle_t QEI_Task_Handler; 	//ÈÎÎñ¾ä
+#define QEI_TASK_PRIO 6  							//ä»»åŠ¡ä¼˜å…ˆçº§
+#define QEI_STK_SIZE 128 							//ä»»åŠ¡å †æ ˆ
+static TaskHandle_t QEI_Task_Handler; 	//ä»»åŠ¡å¥
 void QEI_task(void *pvParameters);
 
 /**********************************************************************************************************
-*º¯ Êı Ãû: start_task
-*¹¦ÄÜËµÃ÷: ´´½¨ËùÓĞÈÎÎñ
-*ĞÎ    ²Î: *pvParameters
-*·µ »Ø Öµ: ÎŞ
+*å‡½ æ•° å: start_task
+*åŠŸèƒ½è¯´æ˜: åˆ›å»ºæ‰€æœ‰ä»»åŠ¡
+*å½¢    å‚: *pvParameters
+*è¿” å› å€¼: æ— 
 **********************************************************************************************************/
 //void start_task(void *pvParameters)
 //{
-////	taskENTER_CRITICAL();//½øÈëÁÙ½çÇø
+////	taskENTER_CRITICAL();//è¿›å…¥ä¸´ç•ŒåŒº
 //	
 
-//	xTaskCreate((TaskFunction_t ) RGB_task,          	 //ÈÎÎñº¯Êı
-//							(char*          ) "RGB",           		 //ÈÎÎñÃû×Ö  
-//							(uint16_t       ) RGB_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-//							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-//							(UBaseType_t    ) RGB_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-//							(TaskHandle_t*  ) &RGBTask_Handler); 	 //ÈÎÎñ¾ä±ú
+//	xTaskCreate((TaskFunction_t ) RGB_task,          	 //ä»»åŠ¡å‡½æ•°
+//							(char*          ) "RGB",           		 //ä»»åŠ¡åå­—  
+//							(uint16_t       ) RGB_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+//							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+//							(UBaseType_t    ) RGB_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+//							(TaskHandle_t*  ) &RGBTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 //							
 
-//	xTaskCreate((TaskFunction_t ) OLED_task,          	 //ÈÎÎñº¯Êı
-//							(char*          ) "OLED",           		 //ÈÎÎñÃû×Ö  
-//							(uint16_t       ) OLED_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-//							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-//							(UBaseType_t    ) OLED_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-//							(TaskHandle_t*  ) &OLEDTask_Handler); 	 //ÈÎÎñ¾ä±ú
+//	xTaskCreate((TaskFunction_t ) OLED_task,          	 //ä»»åŠ¡å‡½æ•°
+//							(char*          ) "OLED",           		 //ä»»åŠ¡åå­—  
+//							(uint16_t       ) OLED_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+//							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+//							(UBaseType_t    ) OLED_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+//							(TaskHandle_t*  ) &OLEDTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 //	
-//	xTaskCreate((TaskFunction_t ) main_task,          	 //ÈÎÎñº¯Êı
-//							(char*          ) "main",           		 //ÈÎÎñÃû×Ö  
-//							(uint16_t       ) main_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-//							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-//							(UBaseType_t    ) main_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-//							(TaskHandle_t*  ) &mainTask_Handler); 	 //ÈÎÎñ¾ä±ú
+//	xTaskCreate((TaskFunction_t ) main_task,          	 //ä»»åŠ¡å‡½æ•°
+//							(char*          ) "main",           		 //ä»»åŠ¡åå­—  
+//							(uint16_t       ) main_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+//							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+//							(UBaseType_t    ) main_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+//							(TaskHandle_t*  ) &mainTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 //							
-//	xTaskCreate((TaskFunction_t ) line_task,          	 //ÈÎÎñº¯Êı
-//							(char*          ) "line",           		 //ÈÎÎñÃû×Ö  
-//							(uint16_t       ) line_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-//							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-//							(UBaseType_t    ) line_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-//							(TaskHandle_t*  ) &lineTask_Handler); 	 //ÈÎÎñ¾ä±ú
+//	xTaskCreate((TaskFunction_t ) line_task,          	 //ä»»åŠ¡å‡½æ•°
+//							(char*          ) "line",           		 //ä»»åŠ¡åå­—  
+//							(uint16_t       ) line_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+//							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+//							(UBaseType_t    ) line_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+//							(TaskHandle_t*  ) &lineTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 //	
-////	vTaskDelete(StartTask_Handler); //É¾³ı¿ªÊ¼ÈÎÎñ
+////	vTaskDelete(StartTask_Handler); //åˆ é™¤å¼€å§‹ä»»åŠ¡
 ////	
-////  taskEXIT_CRITICAL();            //ÍË³öÁÙ½çÇø
+////  taskEXIT_CRITICAL();            //é€€å‡ºä¸´ç•ŒåŒº
 //}
 
 /**********************************************************************************************************
-*º¯ Êı Ãû: StartupTast
-*¹¦ÄÜËµÃ÷: ´´½¨³õÊ¼»¯ÈÎÎñ
-*ĞÎ    ²Î: ÎŞ
-*·µ »Ø Öµ: ÎŞ
+*å‡½ æ•° å: StartupTast
+*åŠŸèƒ½è¯´æ˜: åˆ›å»ºåˆå§‹åŒ–ä»»åŠ¡
+*å½¢    å‚: æ— 
+*è¿” å› å€¼: æ— 
 **********************************************************************************************************/
 void StartupTask(void)
 {
 	
-		xTaskCreate((TaskFunction_t ) RGB_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "RGB",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) RGB_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) RGB_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &RGBTask_Handler); 	 //ÈÎÎñ¾ä±ú
+		xTaskCreate((TaskFunction_t ) RGB_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "RGB",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) RGB_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) RGB_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &RGBTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 							
 
-	xTaskCreate((TaskFunction_t ) OLED_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "OLED",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) OLED_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) OLED_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &OLEDTask_Handler); 	 //ÈÎÎñ¾ä±ú
+	xTaskCreate((TaskFunction_t ) OLED_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "OLED",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) OLED_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) OLED_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &OLEDTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 	
-	xTaskCreate((TaskFunction_t ) main_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "main",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) main_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) main_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &mainTask_Handler); 	 //ÈÎÎñ¾ä±ú
+	xTaskCreate((TaskFunction_t ) main_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "main",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) main_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) main_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &mainTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 							
-	xTaskCreate((TaskFunction_t ) line_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "line",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) line_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) line_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &lineTask_Handler); 	 //ÈÎÎñ¾ä±ú
+	xTaskCreate((TaskFunction_t ) line_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "line",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) line_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) line_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &lineTask_Handler); 	 //ä»»åŠ¡å¥æŸ„
 
-	xTaskCreate((TaskFunction_t ) Set0_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "Set0",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) Set0_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) Set0_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &Set0Task_Handler); 	 //ÈÎÎñ¾ä±ú
+	xTaskCreate((TaskFunction_t ) Set0_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "Set0",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) Set0_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) Set0_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &Set0Task_Handler); 	 //ä»»åŠ¡å¥æŸ„
 							
-	xTaskCreate((TaskFunction_t ) circle_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "Circle",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) Circle_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) Circle_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &Circle_Task_Handler); 	 //ÈÎÎñ¾ä±ú
+	xTaskCreate((TaskFunction_t ) circle_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "Circle",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) Circle_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) Circle_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &Circle_Task_Handler); 	 //ä»»åŠ¡å¥æŸ„
 							
-	xTaskCreate((TaskFunction_t ) QEI_task,          	 //ÈÎÎñº¯Êı
-							(char*          ) "QEI",           		 //ÈÎÎñÃû×Ö  
-							(uint16_t       ) QEI_STK_SIZE,     	 //ÈÎÎñ¶ÑÕ»
-							(void*          ) NULL,                //´«ÈëµÄÈÎÎñ²ÎÊı
-							(UBaseType_t    ) QEI_TASK_PRIO,       //ÈÎÎñÓÅÏÈ¼¶
-							(TaskHandle_t*  ) &QEI_Task_Handler); 	 //ÈÎÎñ¾ä±ú
+	xTaskCreate((TaskFunction_t ) QEI_task,          	 //ä»»åŠ¡å‡½æ•°
+							(char*          ) "QEI",           		 //ä»»åŠ¡åå­—  
+							(uint16_t       ) QEI_STK_SIZE,     	 //ä»»åŠ¡å †æ ˆ
+							(void*          ) NULL,                //ä¼ å…¥çš„ä»»åŠ¡å‚æ•°
+							(UBaseType_t    ) QEI_TASK_PRIO,       //ä»»åŠ¡ä¼˜å…ˆçº§
+							(TaskHandle_t*  ) &QEI_Task_Handler); 	 //ä»»åŠ¡å¥æŸ„
 							
 						
 							
 }
 
-//¿ÉÒÔ¼ì²é¶ÑÕ»ÊÇ·ñÒç³ö£¬Òç³öÔòµ÷ÓÃ¸Ãº¯Êı
+//å¯ä»¥æ£€æŸ¥å †æ ˆæ˜¯å¦æº¢å‡ºï¼Œæº¢å‡ºåˆ™è°ƒç”¨è¯¥å‡½æ•°
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName)
 {
 
 }
-//mallocÊ§°ÜÊ±±»µ÷ÓÃ
+//mallocå¤±è´¥æ—¶è¢«è°ƒç”¨
 void vApplicationMallocFailedHook( void )
 {
 
 }
 
-//¿ÕÏĞÈÎÎñ¹³×Óº¯Êı£¬µ±ÏµÍ³½øÈë¿ÕÏĞ×´Ì¬Ê±£¬FreeRTOS»áÖÜÆÚĞÔµØµ÷ÓÃvApplicationIdleHookº¯Êı¡£
+//ç©ºé—²ä»»åŠ¡é’©å­å‡½æ•°ï¼Œå½“ç³»ç»Ÿè¿›å…¥ç©ºé—²çŠ¶æ€æ—¶ï¼ŒFreeRTOSä¼šå‘¨æœŸæ€§åœ°è°ƒç”¨vApplicationIdleHookå‡½æ•°ã€‚
 void vApplicationIdleHook( void )
 {
 
 }
 
-//Ëæ×ÅÏµÍ³µÎ´ğ½øĞĞµ÷ÓÃ,1msÒ»´Î
+//éšç€ç³»ç»Ÿæ»´ç­”è¿›è¡Œè°ƒç”¨,1msä¸€æ¬¡
 void vApplicationTickHook( void )
 {
 
@@ -181,38 +181,38 @@ void RGB_task(void *pvParameters)
 //		Color=Color<<8;
 //		if(Color>0xff0000)Color=0x0000ff;
 //		WS2812_Set_Color(Color);
-//        WS2812_Send_Array(); // ·¢ËÍ¸üĞÂ
+//        WS2812_Send_Array(); // å‘é€æ›´æ–°
 		vTaskDelay(1000);
 	
 	}
 }
 
 #define Y_Init		6000
-#define X_SPEED_MAX  12		//ÔÆÌ¨XÖáËÙ¶ÈÏŞ·ù
+#define X_SPEED_MAX  12		//äº‘å°Xè½´é€Ÿåº¦é™å¹…
 #define FABS(a) (a>0?a:-a)
 int err_cx,err_cy;
-int Greenx=320/2,Greeny=125;		//Ä¿±êµã
+int Greenx=320/2,Greeny=125;		//ç›®æ ‡ç‚¹
 float CyPwmOut=Y_Init,Cy_out;
 int test=0;
-int Start_flag=0,Set0_flag=0,Set0_status=0, Ccircle_flag=0;	//ÓÃÓÚ¸÷¸ötaskµÄÆô¶¯±êÖ¾
-int YunTai_EN=0,Line_EN=0;		//ÔÆÌ¨ºÍÑ­¼£Ê¹ÄÜ¹¦ÄÜ±êÖ¾
-uint32_t distance=0;			//×ÜÂ·³Ì¼ÆÊı
+int Start_flag=0,Set0_flag=0,Set0_status=0, Ccircle_flag=0;	//ç”¨äºå„ä¸ªtaskçš„å¯åŠ¨æ ‡å¿—
+int YunTai_EN=0,Line_EN=0;		//äº‘å°å’Œå¾ªè¿¹ä½¿èƒ½åŠŸèƒ½æ ‡å¿—
+uint32_t distance=0;			//æ€»è·¯ç¨‹è®¡æ•°
 uint16_t last_x,last_y;
-#define  ERR_RANGE		3		//ÔÆÌ¨¶¨Î»·¶Î§£¬Î´ÆôÓÃ
+#define  ERR_RANGE		3		//äº‘å°å®šä½èŒƒå›´ï¼Œæœªå¯ç”¨
 
-int yuntai_flag = 0;  			//ÉèÖÃÔÆÌ¨³õÊ¼Î»ÖÃ
-int car_go_dir = 1; 			//µÚÒ»ÎÊÈ¦Êı
-int yutai_3_init_falg = 1; 		//µÚÈıÎÊÖĞÔÆÌ¨×ªÏò±êÖ¾
-int open_line_falg = 0; 		//µÚËÄÎÊ¿ªÊ¼Ñ²ÏßµÄ±êÖ¾
-int location_err_falg = 0; 		//ÔÆÌ¨×·×ÙÎó²îĞ¡ÓÚ¼ÆÊıÎ»
+int yuntai_flag = 0;  			//è®¾ç½®äº‘å°åˆå§‹ä½ç½®
+int car_go_dir = 1; 			//ç¬¬ä¸€é—®åœˆæ•°
+int yutai_3_init_falg = 1; 		//ç¬¬ä¸‰é—®ä¸­äº‘å°è½¬å‘æ ‡å¿—
+int open_line_falg = 0; 		//ç¬¬å››é—®å¼€å§‹å·¡çº¿çš„æ ‡å¿—
+int location_err_falg = 0; 		//äº‘å°è¿½è¸ªè¯¯å·®å°äºè®¡æ•°ä½
 
-//Ö÷Âß¼­ÈÎÎñ
+//ä¸»é€»è¾‘ä»»åŠ¡
 void main_task(void *pvParameters)
 {
 	PID_Init();
 	vTaskDelay(500);
 	
-	//²Ëµ¥
+	//èœå•
 	TI();
 	Start_flag=1;
 
@@ -221,19 +221,19 @@ void main_task(void *pvParameters)
 	
 //	Emm_V5_Vel_Control( 0x01, 1, 12, 0,  false);
 
-	//ÔËĞĞÑ²ÏßÈÎÎñ£¬²ÎÊı£ºÖ±ÏßÄ£Ê½
+	//è¿è¡Œå·¡çº¿ä»»åŠ¡ï¼Œå‚æ•°ï¼šç›´çº¿æ¨¡å¼
 	// Motor_Open(MOTOR_Line);
 
-	//µç»úĞı×ª
+	//ç”µæœºæ—‹è½¬
 	// Motor_Write(1500,1500);
 
-	//ÔËĞĞ·½Ïò£º1£ºÍùÓÒ
+	//è¿è¡Œæ–¹å‘ï¼š1ï¼šå¾€å³
 	// Emm_V5_Pos_Control(0x01, 1, 5, 0, 1400, false, false);
 
-	//ÔË¶¯·½Ïò£¬¼õĞ¡½Ç¶ÈÎªÏòÏÂ
+	//è¿åŠ¨æ–¹å‘ï¼Œå‡å°è§’åº¦ä¸ºå‘ä¸‹
 	// Set_Servo(SERVO1,90);
 
-	//¸øPWM¼ÆÊıÔ­Ê¼Öµ,¼õĞ¡½Ç¶ÈÏòÏÂ
+	//ç»™PWMè®¡æ•°åŸå§‹å€¼,å‡å°è§’åº¦å‘ä¸‹
 //	MaixCam_Send_XY(Greenx,Greeny);
 //	Set_Servo_raw(SERVO1, Y_Init);
 //	vTaskDelay(1000);
@@ -242,19 +242,19 @@ void main_task(void *pvParameters)
 	while (1)
 	{
 		
-		//µÚ¶şÎÊ
+		//ç¬¬äºŒé—®
 		if(YunTai_EN==1 || YunTai_EN==3)
 		{
-			//µÚ¶şÎÊÏÈ½øĞĞ¿ª»·×ª¶¯Ò»¶Î¾àÀëµ½°ĞÖ½ÉÏÔÙ½øĞĞ¶¨Î»
-			//¿ÉÒÔÖ±½Ó½«ÉãÏñÍ·¶Ô×¼°ĞÖ½£¬È¡ÏûÕâ²¿·Ö¿ª»·×ª¶¯
+			//ç¬¬äºŒé—®å…ˆè¿›è¡Œå¼€ç¯è½¬åŠ¨ä¸€æ®µè·ç¦»åˆ°é¶çº¸ä¸Šå†è¿›è¡Œå®šä½
+			//å¯ä»¥ç›´æ¥å°†æ‘„åƒå¤´å¯¹å‡†é¶çº¸ï¼Œå–æ¶ˆè¿™éƒ¨åˆ†å¼€ç¯è½¬åŠ¨
 
 // 			if(yuntai_flag == 0)  
 // 			{
-// 			Emm_V5_En_Control(1, true, false, UART_1_INST); // µç»úÊ¹ÄÜ¿ØÖÆ
+// 			Emm_V5_En_Control(1, true, false, UART_1_INST); // ç”µæœºä½¿èƒ½æ§åˆ¶
 // 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
 // 		    vTaskDelay(10);
 			
-// 			if(YunTai_EN == 1)  //µÚ¶şÎÊ¸øµÄ³õÊ¼Î»ÖÃ
+// 			if(YunTai_EN == 1)  //ç¬¬äºŒé—®ç»™çš„åˆå§‹ä½ç½®
 // 			{
 // 			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_1_INST);
 // 			vTaskDelay(10);
@@ -269,7 +269,7 @@ void main_task(void *pvParameters)
 // 			yuntai_flag = 1;
 // 			}
 
-// //			if(YunTai_EN == 3)  //µÚËÄÎÊ¸øµÄ³õÊ¼Î»ÖÃ
+// //			if(YunTai_EN == 3)  //ç¬¬å››é—®ç»™çš„åˆå§‹ä½ç½®
 // //			{
 // //			POS_Control(-30 , 70*256, YAW);
 // //			POS_Control(30 , 5*256, PITCH);
@@ -279,9 +279,16 @@ void main_task(void *pvParameters)
 
 // 			}	
 			
-			//Èç¹ûÉãÏñÍ·Ê¶±ğµ½Ä¿±êÔò¿ªÊ¼ÔËĞĞ
-			Emm_V5_En_Control(1, true, false, UART_1_INST); // µç»úÊ¹ÄÜ¿ØÖÆ
+			//å¦‚æœæ‘„åƒå¤´è¯†åˆ«åˆ°ç›®æ ‡åˆ™å¼€å§‹è¿è¡Œ
+			Emm_V5_En_Control(1, true, false, UART_1_INST); // ç”µæœºä½¿èƒ½æ§åˆ¶
 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
+			
+			// UART1å›é›¶ï¼ˆåªæ‰§è¡Œä¸€æ¬¡ï¼‰
+			if(uart1_origin_done == 0) {
+				Emm_V5_Origin_Trigger_Return(1, 0, false, UART_1_INST);
+				vTaskDelay(100);
+				uart1_origin_done = 1;
+			}
 			// OLED_Write(0,8,16,"not return");
 			// vTaskDelay(100);
 			// Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST)0;
@@ -312,11 +319,11 @@ void main_task(void *pvParameters)
 			else if(Sery.out <0 )
 			Sery.out= Sery.out - 0.8f;
 			
-//			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
+			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
 			Serx.out=Serx.out>(X_SPEED_MAX)?(X_SPEED_MAX):Serx.out;
 			Serx.out=Serx.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Serx.out;
 			
-//			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
+			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
 			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
 			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
 
@@ -333,7 +340,7 @@ void main_task(void *pvParameters)
 		// while(1) vTaskDelay(10);
 			
 			
-		if(YunTai_EN == 3)  //µÚËÄÎÊ
+		if(YunTai_EN == 3)  //ç¬¬å››é—®
 		{
 		if(Serx.err <3 && open_line_falg==0 )
 		{
@@ -348,15 +355,15 @@ void main_task(void *pvParameters)
 
 		}
 		
-		//µÚÈıÎÊ
+		//ç¬¬ä¸‰é—®
 		else if(YunTai_EN==2)
 		{
 			
 			if(yuntai_flag == 0)  
 			{	
-			//Õâ²¿·ÖÖ»ÔËĞĞÒ»´Î£¬Í¨¹ıÅĞ¶Ïyuntai_flagÀ´Ñ¡ÔñÔÆÌ¨³õÊ¼ÔË¶¯·½ÏòÊÇ×ó»¹ÊÇÓÒ
-			//yuntai_flag±êÖ¾ÓÉ°´¼ü½øĞĞ¾ö¶¨£¬ÔÚµÚÈıÎÊµÄ²Ëµ¥ÖĞ£¬KEY4´ú±í×óÔËĞĞ£¬KEY3´ú±íÓÒÔËĞĞ
-			Emm_V5_En_Control(1, true, false, UART_1_INST); // µç»úÊ¹ÄÜ¿ØÖÆ
+			//è¿™éƒ¨åˆ†åªè¿è¡Œä¸€æ¬¡ï¼Œé€šè¿‡åˆ¤æ–­yuntai_flagæ¥é€‰æ‹©äº‘å°åˆå§‹è¿åŠ¨æ–¹å‘æ˜¯å·¦è¿˜æ˜¯å³
+			//yuntai_flagæ ‡å¿—ç”±æŒ‰é”®è¿›è¡Œå†³å®šï¼Œåœ¨ç¬¬ä¸‰é—®çš„èœå•ä¸­ï¼ŒKEY4ä»£è¡¨å·¦è¿è¡Œï¼ŒKEY3ä»£è¡¨å³è¿è¡Œ
+			Emm_V5_En_Control(1, true, false, UART_1_INST); // ç”µæœºä½¿èƒ½æ§åˆ¶
 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
 		    vTaskDelay(10);
 				
@@ -371,7 +378,7 @@ void main_task(void *pvParameters)
 			
 			if(yuntai_flag == 1)  
 			{
-			//ÓÒÔË¶¯		
+			//å³è¿åŠ¨		
 			if(yutai_3_init_falg == 1)  Speed_Control(10, YAW);
 			else if(yutai_3_init_falg == 2)  Speed_Control(-10, YAW);
 			yuntai_flag = 2;	
@@ -402,11 +409,11 @@ void main_task(void *pvParameters)
 			else if(Sery.out <0 )
 			Sery.out= Sery.out - 0.8f;
 			
-//			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
+			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
 			Serx.out=Serx.out>(X_SPEED_MAX)?(X_SPEED_MAX):Serx.out;
 			Serx.out=Serx.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Serx.out;
 			
-//			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
+			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
 			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
 			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
 			
@@ -439,7 +446,7 @@ void line_task(void *pvParameters)
 	if(Line_EN==1)
 	{
 		Line_Control();
-	//car_go_dirÓÉ²Ëµ¥ÖĞµÄ°´¼ü¾ö¶¨£¬ÊÇ1-5È¦£¬Ò»È¦µÄ±àÂëÆ÷¼ÆÊı´ó¸Å24000
+	//car_go_dirç”±èœå•ä¸­çš„æŒ‰é”®å†³å®šï¼Œæ˜¯1-5åœˆï¼Œä¸€åœˆçš„ç¼–ç å™¨è®¡æ•°å¤§æ¦‚24000
 	if(distance > (car_go_dir*1200000) )  
 	{
 		Motor_Write(0,0);
@@ -456,7 +463,7 @@ void line_task(void *pvParameters)
 	}
 }
 
-//OLEDÊµÊ±ÏÔÊ¾
+//OLEDå®æ—¶æ˜¾ç¤º
 void OLED_task(void *pvParameters)
 {
 	vTaskDelay(500);
@@ -464,7 +471,7 @@ void OLED_task(void *pvParameters)
 	while (1)
 	{
 
-		//ÓÃ·¨£º0(0-127)ĞĞ0(0-7)ÁĞ£¬×ÖÌå´óĞ¡16£¬ºóÃæµÄÓÃ·¨²Î¿¼printf£¬Í¨¹ı%d£¬%fµÈ½øĞĞ´òÓ¡Êı¾İ
+		//ç”¨æ³•ï¼š0(0-127)è¡Œ0(0-7)åˆ—ï¼Œå­—ä½“å¤§å°16ï¼Œåé¢çš„ç”¨æ³•å‚è€ƒprintfï¼Œé€šè¿‡%dï¼Œ%fç­‰è¿›è¡Œæ‰“å°æ•°æ®
 //		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
 //		OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
 //		OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
@@ -479,8 +486,8 @@ void OLED_task(void *pvParameters)
 	}
 }
 
-//Î´ÓÃµ½
-//ÔÆÌ¨¹éÁãÈÎÎñ
+//æœªç”¨åˆ°
+//äº‘å°å½’é›¶ä»»åŠ¡
 void Set0_task(void *pvParameters)
 {
 	// uint32_t distance=0;
@@ -505,7 +512,7 @@ void Set0_task(void *pvParameters)
 			vTaskDelay(20);
 		}
 		
-		//Í£Ö¹ÁË
+		//åœæ­¢äº†
 //		if(Set0_status==3) {YunTai_EN=1;while(1) __nop();}
 
 
@@ -522,13 +529,13 @@ void Set0_task(void *pvParameters)
 		Set0_flag=0;
 //		
 		
-//		//ÑÓÊ±40ms
+//		//å»¶æ—¶40ms
 //		vTaskDelay(1000);
 	}
 }
 int16_t speed[2]={0};
 	   
-//²»¶Ï¸üĞÂ±àÂëÆ÷¼ÆÊıÖµ
+//ä¸æ–­æ›´æ–°ç¼–ç å™¨è®¡æ•°å€¼
 void QEI_task(void *pvParameters)
 {
 	vTaskDelay(500);
@@ -541,7 +548,7 @@ void QEI_task(void *pvParameters)
 	} 
 }	
 
-//·¢»Ó²¿·Ö»­Ô²
+//å‘æŒ¥éƒ¨åˆ†ç”»åœ†
 void circle_task(void *pvParameters)
 {
 	float x_out,y_out;
