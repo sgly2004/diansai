@@ -144,8 +144,7 @@ void Line_Control(void)
 		vTaskDelay(80);
 	//	while (HW_IO3 == 0) vTaskDelay(2);
 		Motor_Write(SPEED_UP,-1);
-		while (HW_IO3 == 1) vT
-			askDelay(100);
+		while (HW_IO3 == 1) vTaskDelay(100);
 		vTaskDelay(50);
 	}
 	

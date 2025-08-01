@@ -332,7 +332,7 @@ void main_task(void *pvParameters)
 			OLED_Write(0,14,16,"PITCH :%d  ", Sery.out);
 			
 			Speed_Control(Serx.out , YAW);
-			Speed_Control(Sery.out , PITCH);
+			Speed_Control(-Sery.out , PITCH);
 //			if(Line_EN ==1 )
 //			{
 //			 Speed_Control(Serx.out - 1 , YAW);

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\xf.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\xf.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Sat Aug  2 02:21:06 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Sat Aug  2 05:02:52 2025
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -589,7 +589,7 @@ Global Symbols
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
 </UL>
 
-<P><STRONG><a name="[51]"></a>Line_Control</STRONG> (Thumb, 196 bytes, Stack size 24 bytes, control.o(.text.Line_Control))
+<P><STRONG><a name="[51]"></a>Line_Control</STRONG> (Thumb, 192 bytes, Stack size 24 bytes, control.o(.text.Line_Control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = Line_Control &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -953,7 +953,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[22]"></a>main_task</STRONG> (Thumb, 1024 bytes, Stack size 16 bytes, startuptask.o(.text.main_task))
+<P><STRONG><a name="[22]"></a>main_task</STRONG> (Thumb, 1028 bytes, Stack size 16 bytes, startuptask.o(.text.main_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = main_task &rArr; TI &rArr; TASK_1 &rArr; OLED_Write &rArr; OLED_ShowChar &rArr; IIC_XIE_DATA &rArr; IIC_XIE
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
