@@ -206,6 +206,8 @@ int yutai_3_init_falg = 1; 		//第三问中云台转向标志
 int open_line_falg = 0; 		//第四问开始巡线的标志
 int location_err_falg = 0; 		//云台追踪误差小于计数位
 int uart1_origin_done = 0;		//UART1回零完成标志
+int num_second = 0; 			//停止的秒数计数
+uint16_t delta_JiGuang = 0;
 
 //主逻辑任务
 void main_task(void *pvParameters)
@@ -286,7 +288,8 @@ void main_task(void *pvParameters)
 			
 			// UART1回零（只执行一次）
 			if(uart1_origin_done == 0) {
-				Emm_V5_Origin_Trigger_Return(1, 0, false, UART_1_INST);
+				// Emm_V5_Origin_Trigger_Return(1, 0, false, UART_1_INST);
+				POS_Control(-30 , 5*256, PITCH);
 				vTaskDelay(100);
 				uart1_origin_done = 1;
 			}
@@ -299,14 +302,19 @@ void main_task(void *pvParameters)
 			Camera_flag=0;
 			while(!Camera_flag) vTaskDelay(2);
 							
-			err_cx = JiGuang[0] - Greenx;
-			err_cy = JiGuang[1] - Greeny;
-			OLED_Write(0,8,16,"x :%d  ", JiGuang[0]);
-			OLED_Write(0,10,16,"y :%d  ", JiGuang[1]);
+			// err_cx = JiGuang[0] - Greenx - Greenx;
+			err_cx = JiGuang[0];
+			// err_cy = JiGuang[1] - Greeny;
+			err_cy = JiGuang[1] + Greeny * 3;
+			// OLED_Write(0,8,16,"x :%d  ", JiGuang[0]);
+			// OLED_Write(0,10,16,"y :%d  ", JiGuang[1]);
+			OLED_Write(0,8,16,"err_cx :%d  ", err_cx);
+			OLED_Write(0,10,16,"err_cy :%d  ", err_cy);
 
 			Erect_pid(&Serx,JiGuang[0],Greenx);
 			Erect_pid(&Sery,JiGuang[1],Greeny);
 			
+			delta_JiGuang = JiGuang[0] - last_x;
 			last_x = JiGuang[0];
 			last_y = JiGuang[1];
 			
@@ -328,11 +336,28 @@ void main_task(void *pvParameters)
 			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
 			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
 
-			OLED_Write(0,12,16,"YAW :%d  ", Serx.out);
-			OLED_Write(0,14,16,"PITCH :%d  ", Sery.out);
+			
+			OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
+			if (delta_JiGuang < 0.05 && delta_JiGuang > -0.05){
+				num_second += 1;
+			}
+			if (num_second >= 20){
+				Speed_Control(0 , YAW);
+				OLED_Write(0,10,16,"success");
+				GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
+				while(1) vTaskDelay(10);
+			}
+
+			// if(err_cx < 170 && err_cx > -170){
+			// 	GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
+			// 	while(1) vTaskDelay(10);
+			// }
+
+			// OLED_Write(0,12,16,"YAW :%d  ", Serx.out);
+			// OLED_Write(0,14,16,"PITCH :%d  ", Sery.out);
 			
 			Speed_Control(Serx.out , YAW);
-			Speed_Control(-Sery.out , PITCH);
+			// Speed_Control(-Sery.out , PITCH);
 //			if(Line_EN ==1 )
 //			{
 //			 Speed_Control(Serx.out - 1 , YAW);
@@ -396,6 +421,8 @@ void main_task(void *pvParameters)
 
 			Erect_pid(&Serx,JiGuang[0],Greenx);
 			Erect_pid(&Sery,JiGuang[1],Greeny);
+
+			delta_JiGuang = JiGuang[0] - last_x;
 			
 			last_x = JiGuang[0];
 			last_y = JiGuang[1];
@@ -419,7 +446,17 @@ void main_task(void *pvParameters)
 			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
 			
 			Speed_Control(Serx.out, YAW);
-			Speed_Control(Sery.out , PITCH);
+			// Speed_Control(-Sery.out , PITCH);
+						OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
+			if (delta_JiGuang < 0.05 && delta_JiGuang > -0.05){
+				num_second += 1;
+			}
+			if (num_second >= 20){
+				Speed_Control(0 , YAW);
+				OLED_Write(0,10,16,"success");
+				GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
+				while(1) vTaskDelay(10);
+			}
 
 		}
 		else
@@ -473,9 +510,9 @@ void OLED_task(void *pvParameters)
 	{
 
 		//用法：0(0-127)行0(0-7)列，字体大小16，后面的用法参考printf，通过%d，%f等进行打印数据
-		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
-		OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
-		OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
+		// OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
+		// OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
+		// OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
 //		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
 //		OLED_Write(0,2,16,"x:%d y:%d  ", JiGuang[0], JiGuang[1]);
 //		OLED_Write(0,4,16,"fps :%d  ", (int)KEY1);

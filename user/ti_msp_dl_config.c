@@ -185,6 +185,10 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 
     DL_GPIO_initDigitalOutput(BLUE_LED3_IOMUX);
 
+    DL_GPIO_initDigitalOutputFeatures(jiguangbi_PIN_12_IOMUX,
+		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_DOWN,
+		 DL_GPIO_DRIVE_STRENGTH_LOW, DL_GPIO_HIZ_DISABLE);
+
     DL_GPIO_initDigitalOutput(OLED_SCL_IOMUX);
 
     DL_GPIO_initDigitalOutput(OLED_SDA_IOMUX);
@@ -239,10 +243,12 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		IOA_IOA3_PIN);
     DL_GPIO_clearPins(GPIOB, M1_2_Dir_PIN_2_PIN |
 		M1_1_Dir_PIN_1_PIN |
-		M2_2_Dir_PIN_4_PIN);
+		M2_2_Dir_PIN_4_PIN |
+		jiguangbi_PIN_12_PIN);
     DL_GPIO_enableOutput(GPIOB, M1_2_Dir_PIN_2_PIN |
 		M1_1_Dir_PIN_1_PIN |
-		M2_2_Dir_PIN_4_PIN);
+		M2_2_Dir_PIN_4_PIN |
+		jiguangbi_PIN_12_PIN);
     DL_GPIO_setUpperPinsInputFilter(GPIOB, DL_GPIO_PIN_25_INPUT_FILTER_3_CYCLES |
 		DL_GPIO_PIN_22_INPUT_FILTER_3_CYCLES);
 
@@ -280,7 +286,7 @@ static const DL_TimerG_ClockConfig gMOTOR_PWMClockConfig = {
 static const DL_TimerG_PWMConfig gMOTOR_PWMConfig = {
     .pwmMode = DL_TIMER_PWM_MODE_EDGE_ALIGN,
     .period = 10000,
-//    .isTimerWithFourCC = false,
+    //.isTimerWithFourCC = false,
     .startTimer = DL_TIMER_START,
 };
 

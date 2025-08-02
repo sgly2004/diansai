@@ -267,6 +267,12 @@ extern "C" {
 /* Defines for LED3: GPIOA.18 with pinCMx 40 on package pin 11 */
 #define BLUE_LED3_PIN                                           (DL_GPIO_PIN_18)
 #define BLUE_LED3_IOMUX                                          (IOMUX_PINCM40)
+/* Port definition for Pin Group jiguangbi */
+#define jiguangbi_PORT                                                   (GPIOB)
+
+/* Defines for PIN_12: GPIOB.13 with pinCMx 30 on package pin 1 */
+#define jiguangbi_PIN_12_PIN                                    (DL_GPIO_PIN_13)
+#define jiguangbi_PIN_12_IOMUX                                   (IOMUX_PINCM30)
 /* Port definition for Pin Group OLED */
 #define OLED_PORT                                                        (GPIOA)
 
