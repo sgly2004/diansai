@@ -3607,7 +3607,7 @@
       <Doc>
         <Name>..\user\main.syscfg</Name>
         <ColumnNumber>17</ColumnNumber>
-        <TopLine>1</TopLine>
+        <TopLine>2</TopLine>
         <CurrentLine>28</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
@@ -3624,9 +3624,9 @@
       </Doc>
       <Doc>
         <Name>..\Hardware\control\control.c</Name>
-        <ColumnNumber>4</ColumnNumber>
+        <ColumnNumber>0</ColumnNumber>
         <TopLine>139</TopLine>
-        <CurrentLine>156</CurrentLine>
+        <CurrentLine>157</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -3688,7 +3688,7 @@
       <Doc>
         <Name>..\user\ti_msp_dl_config.c</Name>
         <ColumnNumber>6</ColumnNumber>
-        <TopLine>264</TopLine>
+        <TopLine>268</TopLine>
         <CurrentLine>289</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>

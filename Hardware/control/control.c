@@ -7,7 +7,7 @@ struct PID Serx,Sery;
 //位置式PID参数
 void PID_Init(void)
 {
-	Serx.kp=-0.05;//-0.15;
+	Serx.kp=-0.15;//-0.15;
 	Serx.kd=-0.1;
 	
 	Sery.kp=-0.05;
@@ -16,14 +16,11 @@ void PID_Init(void)
 
 void Set_PID_1(void)
 {
-	Serx.kp=-0.15f;
-	Serx.kd=-0.3f;
+	Serx.kp=-0.15;//-0.15;
+	Serx.kd=-0.1;
 	
-	Sery.kp=0.35f;
-	Sery.kd=0.5f;
-	
-	Greenx=320;
-	Greeny=240;
+	Sery.kp=-0.05;
+	Sery.kd=-0.1;
 }
 
 void Set_PID_2(void)
@@ -161,6 +158,32 @@ void Line_Control(void)
 	else if(Line[2] == 0) 		Motor_Write(SPEED,SPEED-GAIN);
 	else if(Line[1] == 0) 	    Motor_Write(SPEED-GAIN,SPEED);
 	else 					    Motor_Write(SPEED,SPEED);
+}
+
+void Line_Control2(void)
+{
+	Get_hw();	
+    if(Line[3] == 0){
+		vTaskDelay(60);
+	//	while (HW_IO3 == 0) vTaskDelay(2);
+		Motor_Write(SPEED_UP2,-1);
+		vTaskDelay(100);
+		while (HW_IO3 == 1) vTaskDelay(80);
+		vTaskDelay(80);
+	}
+	
+    else if(Line[0] == 0){
+	vTaskDelay(100);
+//	while (HW_IO2 == 0) vTaskDelay(2);
+	Motor_Write(-1,SPEED_UP2);	
+	vTaskDelay(100);
+	while (HW_IO2 == 1) vTaskDelay(50);
+	vTaskDelay(80);
+	}       
+
+	else if(Line[2] == 0) 		Motor_Write(SPEED2,SPEED2-GAIN2);
+	else if(Line[1] == 0) 	    Motor_Write(SPEED2-GAIN2,SPEED2);
+	else 					    Motor_Write(SPEED2,SPEED2);
 }
 
 //void Line_Control(void)
@@ -312,6 +335,12 @@ void TASK_3()
    Line_EN= 3;
 }
 
+ void TASK_5()
+{
+   YunTai_EN= 3; 
+   Line_EN= 4;
+}
+
 
 
 void TI(void)
@@ -446,7 +475,7 @@ void TI(void)
 			else if(a==1) {YunTai_EN= 1;}  //第二问
 	 		else if(a==2) {TASK_3();}		//第三问
 			else if(a==3) {TASK_4();}  //第四问
-//			else if(a==4)	{EXTIX_Init();Task5lv();}//发挥
+			else if(a==4)	{TASK_5();}//发挥
 //			else if(a==5)	{EXTIX_Init();Task0();}	 //第二问校准
 //			else if(a==6)	{EXTIX_Init();Task00();} //第三问校准
 			break;

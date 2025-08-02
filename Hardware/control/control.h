@@ -8,6 +8,12 @@
 #define GAIN     750             //偏差增益
 #define GAIN_K   2               //大角度偏差增益
 
+
+#define SPEED2    1500            //直线速度
+#define SPEED_UP2    1500            //转弯速度
+#define GAIN2     550             //偏差增益
+#define GAIN_K2   2               //大角度偏差增益
+
 #define TURN_SPEED    1600            //旋转速度
 #define LEFT_OR        -1             //左旋转
 #define RIGHT_OR        1             //右旋转

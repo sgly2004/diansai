@@ -460,25 +460,16 @@ void main_task(void *pvParameters)
 
 		}
 		else if(YunTai_EN==3){
+			Set_PID_1();
 			//如果摄像头识别到目标则开始运行
 			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
 			
-			// UART1回零（只执行一次）
-			// if(uart1_origin_done == 0) {
-			// 	// Emm_V5_Origin_Trigger_Return(1, 0, false, UART_1_INST);
-			// 	POS_Control(-30 , 5*256, PITCH);
-			// 	vTaskDelay(100);
-			// 	uart1_origin_done = 1;
-			// }
-			// OLED_Write(0,8,16,"not return");
-			// vTaskDelay(100);
-			// Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST)0;
-			// vTaskDelay(100);
 
-			OLED_Write(0,8,16,"wait!");
+			OLED_Write(0,8,16,"Q4!");
 			Camera_flag=0;
 			while(!Camera_flag) vTaskDelay(2);
+			GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
 							
 			// err_cx = JiGuang[0] - Greenx - Greenx;
 			err_cx = JiGuang[0];
@@ -486,8 +477,10 @@ void main_task(void *pvParameters)
 			err_cy = JiGuang[1] + Greeny * 3;
 			// OLED_Write(0,8,16,"x :%d  ", JiGuang[0]);
 			// OLED_Write(0,10,16,"y :%d  ", JiGuang[1]);
-			OLED_Write(0,8,16,"err_cx :%d  ", err_cx);
-			OLED_Write(0,10,16,"err_cy :%d  ", err_cy);
+			// OLED_Write(0,8,16,"err_cx :%d  ", err_cx);
+			// OLED_Write(0,10,16,"err_cy :%d  ", err_cy);
+			OLED_Write(0,8,16,"Q4!");
+			OLED_Write(0,12,16,"err_cx:%d",err_cx);
 
 			Erect_pid(&Serx,JiGuang[0],Greenx);
 			Erect_pid(&Sery,JiGuang[1],Greeny);
@@ -516,17 +509,6 @@ void main_task(void *pvParameters)
 
 			Speed_Control(Serx.out , YAW);
 
-			
-			// OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
-			// if (delta_JiGuang < 0.05 && delta_JiGuang > -0.05){
-			// 	num_second += 1;
-			// }
-			// if (num_second >= 20){
-			// 	Speed_Control(0 , YAW);
-			// 	OLED_Write(0,10,16,"success");
-			// 	GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
-			// 	while(1) vTaskDelay(10);
-			// }
 		}
 
 		else
