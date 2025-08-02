@@ -1,26 +1,36 @@
 #include "control.h"
 //#include "LED_Key.h"
-/**************************PID´úÂë************* */
+/**************************PIDï¿½ï¿½ï¿½ï¿½************* */
 #define PID_K   1.4f
 extern int Greenx,Greeny;
+extern int is_turning;
+int is_turning = 0; 
+
+float feed_forward= 0.0f;
+
+// 0ï¿½ï¿½Ê¾Ã»ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 struct PID Serx,Sery;
-//Î»ÖÃÊ½PID²ÎÊý
+//Î»ï¿½ï¿½Ê½PIDï¿½ï¿½ï¿½ï¿½
 void PID_Init(void)
 {
-	Serx.kp=-0.15;//-0.15;
+	Serx.kp=-0.12;//-0.15;
 	Serx.kd=-0.1;
 	
 	Sery.kp=-0.05;
 	Sery.kd=-0.1;
+	feed_forward = 0;
+	
 }
 
 void Set_PID_1(void)
 {
-	Serx.kp=-0.15;//-0.15;
-	Serx.kd=-0.1;
+	Serx.kp=-0.9;//-0.15;
+	Serx.kd=-0.3;
 	
 	Sery.kp=-0.05;
 	Sery.kd=-0.1;
+
+	feed_forward = -20;
 }
 
 void Set_PID_2(void)
@@ -38,7 +48,7 @@ void Set_PID_2(void)
 //	Sery.kd=(0.5f/PID_K);
 }
 
-//Î»ÖÃÊ½PID
+//Î»ï¿½ï¿½Ê½PID
 float Erect_pid(struct PID* para,float hope, float now)
 {
 	(*para).err = now - hope;
@@ -51,15 +61,17 @@ float Erect_pid(struct PID* para,float hope, float now)
 	
 	(*para).err_add+=(*para).err;
 	
+	(*para).out = (*para).out + feed_forward;
+
 	return (*para).out;
 }
-/**************************PID´úÂë************* */
+/**************************PIDï¿½ï¿½ï¿½ï¿½************* */
 
-/**************************Ñ­¼£´úÂë************* */
+/**************************Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½************* */
 uint8_t Line[4];
 
-//ºìÍâ°²×°£º´Ó×óÍùÓÒÒÀ´ÎÊÇ   1, 2, 3, 4£¨Èí¼þ¶¨Òå£©
-//ÔÚÄ£¿éÉÏ¶ÔÓ¦£ºµÚ           2, 3, 6, 7¸öÌ½Í·£¨Ó²¼þÎ»ÖÃÎ»ÖÃ£©
+//ï¿½ï¿½ï¿½â°²×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   1, 2, 3, 4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£©
+//ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ï¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½           2, 3, 6, 7ï¿½ï¿½Ì½Í·ï¿½ï¿½Ó²ï¿½ï¿½Î»ï¿½ï¿½Î»ï¿½Ã£ï¿½
 void Get_hw(void)
 {
 	Line[0] = HW_IO1;
@@ -138,21 +150,21 @@ void Line_Control(void)
 {
 	Get_hw();	
     if(Line[3] == 0){
-		vTaskDelay(60);
+		//vTaskDelay(60);
 	//	while (HW_IO3 == 0) vTaskDelay(2);
 		Motor_Write(SPEED_UP,-1);
-		vTaskDelay(100);
-		while (HW_IO3 == 1) vTaskDelay(80);
 		vTaskDelay(80);
+		while (HW_IO3 == 1) vTaskDelay(50);
+	//	vTaskDelay(50);
 	}
 	
     else if(Line[0] == 0){
-	vTaskDelay(100);
+	//vTaskDelay(100);
 //	while (HW_IO2 == 0) vTaskDelay(2);
 	Motor_Write(-1,SPEED_UP);	
-	vTaskDelay(100);
-	while (HW_IO2 == 1) vTaskDelay(50);
 	vTaskDelay(80);
+	while (HW_IO2 == 1) vTaskDelay(50);
+	//vTaskDelay(50);
 	}       
 
 	else if(Line[2] == 0) 		Motor_Write(SPEED,SPEED-GAIN);
@@ -164,21 +176,26 @@ void Line_Control2(void)
 {
 	Get_hw();	
     if(Line[3] == 0){
-		vTaskDelay(60);
+		
+		//	vTaskDelay(60);
+		is_turning = 1;
 	//	while (HW_IO3 == 0) vTaskDelay(2);
 		Motor_Write(SPEED_UP2,-1);
-		vTaskDelay(100);
-		while (HW_IO3 == 1) vTaskDelay(80);
 		vTaskDelay(80);
+		while (HW_IO3 == 1) vTaskDelay(50);
+		//vTaskDelay(80);
+		is_turning = 0;
 	}
 	
     else if(Line[0] == 0){
-	vTaskDelay(100);
+	//vTaskDelay(100);
+	is_turning = 1;
 //	while (HW_IO2 == 0) vTaskDelay(2);
 	Motor_Write(-1,SPEED_UP2);	
-	vTaskDelay(100);
-	while (HW_IO2 == 1) vTaskDelay(50);
 	vTaskDelay(80);
+	while (HW_IO2 == 1) vTaskDelay(50);
+	//vTaskDelay(80);
+	is_turning = 0;
 	}       
 
 	else if(Line[2] == 0) 		Motor_Write(SPEED2,SPEED2-GAIN2);
@@ -211,20 +228,20 @@ void Line_Control2(void)
 
 
 /*************************
-º¯Êý¹¦ÄÜ:ÒÔ²»Í¬·½Ê½Çý¶¯µç»ú
-Èë¿Ú²ÎÊý:
-Mode:            ¿ÉÑ¡ÔñÑ²ÏßorÐý×ª
-·µ»ØÖµ:ÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½Ô²ï¿½Í¬ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿?:
+Mode:            ï¿½ï¿½Ñ¡ï¿½ï¿½Ñ²ï¿½ï¿½orï¿½ï¿½×ª
+ï¿½ï¿½ï¿½ï¿½Öµ:ï¿½ï¿½
 *************************/
 void Motor_Open(int Mode)
 {
-	if(Mode == MOTOR_Line)                                 //Ñ°ÏßÖ±×ßÄ£Ê½
+	if(Mode == MOTOR_Line)                                 //Ñ°ï¿½ï¿½Ö±ï¿½ï¿½Ä£Ê½
 	{
-		//ÎÞÏÞÑ­»·
+		//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
         while(1)
         // while(!(HW_IO1 || HW_IO4))
         {
-            //Ñ­¼£ÅÐ¶Ï
+            //Ñ­ï¿½ï¿½ï¿½Ð¶ï¿½
             Line_Control();
             vTaskDelay(2);
         }
@@ -243,23 +260,23 @@ void Motor_Open(int Mode)
         
         // if(dir == LEFT_OR) 
         // {
-        //     //µÈ´ýÐ¡³µÐý×ªÖÁ»Ò¶ÈÄ£¿é´¥ÅöºìÏß
+        //     //ï¿½È´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ò¶ï¿½Ä£ï¿½é´¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //     while(HW_IO2) vTaskDelay(2);
-        //     Motor_Write(0,0);  //µç»úÍ£×ª
+        //     Motor_Write(0,0);  //ï¿½ï¿½ï¿½Í£×?
         //     vTaskDelay(20);
         // }
         // else
         // {
         //     while(HW_IO3) vTaskDelay(2);
-        //     Motor_Write(0,0);  //µç»úÍ£×ª
+        //     Motor_Write(0,0);  //ï¿½ï¿½ï¿½Í£×?
         //     vTaskDelay(20);
         // }
 		
 	}
 	
-	// Motor_Write(0,0);  //µç»úÍ£×ª
+	// Motor_Write(0,0);  //ï¿½ï¿½ï¿½Í£×?
 }
-/**************************Ñ­¼£´úÂë************* */
+/**************************Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½************* */
 
 
 
@@ -277,7 +294,7 @@ void TASK_1()
         OLED_Write(0,0,8,"N:%d",car_go_dir);
 			
 		while(1){
-		if(KEY1==1)  //¶þÈ¦
+		if(KEY1==1)  //ï¿½ï¿½È¦
 		{
 			vTaskDelay(10);
 			while(KEY1==1)vTaskDelay(5);
@@ -347,13 +364,13 @@ void TI(void)
 {
 
 	
-	OLED_Write(0,0,8,"Mode1");  //µÚÒ»ÎÊ
-	OLED_Write(0,1,8,"Mode2");	//µÚ¶þÎÊ
-	OLED_Write(0,2,8,"Mode3");	//µÚÈýÎÊ
-	OLED_Write(0,3,8,"Mode4");  //µÚËÄÎÊ
-	OLED_Write(0,4,8,"Mode5");	//·¢»Ó²¿·Ö
-	OLED_Write(0,5,8,"Mode6");	//µÚ¶þÎÊÐ£×¼
-	OLED_Write(0,6,8,"Mode7");	//µÚÈýÎÊÐ£×¼
+	OLED_Write(0,0,8,"Mode1");  //ï¿½ï¿½Ò»ï¿½ï¿½
+	OLED_Write(0,1,8,"Mode2");	//ï¿½Ú¶ï¿½ï¿½ï¿½
+	OLED_Write(0,2,8,"Mode3");	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	OLED_Write(0,3,8,"Mode4");  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	OLED_Write(0,4,8,"Mode5");	//ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½
+	OLED_Write(0,5,8,"Mode6");	//ï¿½Ú¶ï¿½ï¿½ï¿½Ð£×¼
+	OLED_Write(0,6,8,"Mode7");	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£×¼
 	OLED_Write(100,0,8,"*");
 	
 	
@@ -367,14 +384,14 @@ void TI(void)
 //		while(KEY2==1) vTaskDelay(5);
 //		OLED_Clear();	
 //        OLED_Write(0,0,8,"N:%d",car_go_dir);
-////		OLED_Write(0,1,8,"2");	//¶þ
-////		OLED_Write(0,2,8,"3");	//Èý
-////		OLED_Write(0,3,8,"4");  //ËÄ
-////		OLED_Write(0,4,8,"4");  //Îå
+////		OLED_Write(0,1,8,"2");	//ï¿½ï¿½
+////		OLED_Write(0,2,8,"3");	//ï¿½ï¿½
+////		OLED_Write(0,3,8,"4");  //ï¿½ï¿½
+////		OLED_Write(0,4,8,"4");  //ï¿½ï¿½
 ////		OLED_Write(100,0,8,"*");
 ////				
 //		while(1){
-//		if(KEY1==1)  //¶þÈ¦
+//		if(KEY1==1)  //ï¿½ï¿½È¦
 //		{
 //			vTaskDelay(10);
 //			while(KEY1==1)vTaskDelay(5);
@@ -402,7 +419,7 @@ void TI(void)
 //	 }
 	 
 	   
-		//µÚ¶þÎÊ²Ëµ¥
+		//ï¿½Ú¶ï¿½ï¿½Ê²Ëµï¿½
 		if(KEY1==1&&a==0)
 		{
 			vTaskDelay(10);
@@ -415,7 +432,7 @@ void TI(void)
 		
 		
 		
-		//µÚÈýÎÊ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(KEY1==1&&a==1)
 		{
 		vTaskDelay(10);
@@ -471,13 +488,13 @@ void TI(void)
 			while(KEY2==1) ;
 			OLED_Clear();
 //			EXTIX_Init();
-			if(a==0) TASK_1(); //µÚÒ»ÎÊ
-			else if(a==1) {YunTai_EN= 1;}  //µÚ¶þÎÊ
-	 		else if(a==2) {TASK_3();}		//µÚÈýÎÊ
-			else if(a==3) {TASK_4();}  //µÚËÄÎÊ
-			else if(a==4)	{TASK_5();}//·¢»Ó
-//			else if(a==5)	{EXTIX_Init();Task0();}	 //µÚ¶þÎÊÐ£×¼
-//			else if(a==6)	{EXTIX_Init();Task00();} //µÚÈýÎÊÐ£×¼
+			if(a==0) TASK_1(); //ï¿½ï¿½Ò»ï¿½ï¿½
+			else if(a==1) {YunTai_EN= 1;}  //ï¿½Ú¶ï¿½ï¿½ï¿½
+	 		else if(a==2) {TASK_3();}		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			else if(a==3) {TASK_4();}  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			else if(a==4)	{TASK_5();}//ï¿½ï¿½ï¿½ï¿½
+//			else if(a==5)	{EXTIX_Init();Task0();}	 //ï¿½Ú¶ï¿½ï¿½ï¿½Ð£×¼
+//			else if(a==6)	{EXTIX_Init();Task00();} //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£×¼
 			break;
 		}
 		vTaskDelay(10);

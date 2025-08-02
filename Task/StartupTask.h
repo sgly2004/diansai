@@ -16,7 +16,8 @@ TaskHandle_t GetMPUHandler(void);
 
 extern int YunTai_EN,Line_EN;
 extern int car_go_dir;
-extern int yutai_3_init_falg; //µÚÈıÎÊÖĞÔÆÌ¨×ªÏò±êÖ¾
+extern int yutai_3_init_falg; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨×ªï¿½ï¿½ï¿½Ö¾
+extern int is_turning;
 
 #endif
 
