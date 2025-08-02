@@ -246,7 +246,7 @@ void main_task(void *pvParameters)
 	{
 		
 		//第二问
-		if(YunTai_EN==1 || YunTai_EN==3)
+		if(YunTai_EN==1)
 		{
 			//第二问先进行开环转动一段距离到靶纸上再进行定位
 			//可以直接将摄像头对准靶纸，取消这部分开环转动
@@ -366,18 +366,18 @@ void main_task(void *pvParameters)
 		// while(1) vTaskDelay(10);
 			
 			
-		if(YunTai_EN == 3)  //第四问
-		{
-		if(Serx.err <3 && open_line_falg==0 )
-		{
-		location_err_falg ++;
-		if(location_err_falg > 50){
-		Line_EN=1;
-		open_line_falg=1;
-		location_err_falg=0;
-		}
-		}
-		}
+		// if(YunTai_EN == 3)  //第四问
+		// {
+		// if(Serx.err <3 && open_line_falg==0 )
+		// {
+		// location_err_falg ++;
+		// if(location_err_falg > 50){
+		// Line_EN=1;
+		// open_line_falg=1;
+		// location_err_falg=0;
+		// }
+		// }
+		// }
 
 		}
 		
@@ -459,6 +459,76 @@ void main_task(void *pvParameters)
 			}
 
 		}
+		else if(YunTai_EN==3){
+			//如果摄像头识别到目标则开始运行
+			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
+	        Emm_V5_En_Control(1, true, false, UART_0_INST);
+			
+			// UART1回零（只执行一次）
+			// if(uart1_origin_done == 0) {
+			// 	// Emm_V5_Origin_Trigger_Return(1, 0, false, UART_1_INST);
+			// 	POS_Control(-30 , 5*256, PITCH);
+			// 	vTaskDelay(100);
+			// 	uart1_origin_done = 1;
+			// }
+			// OLED_Write(0,8,16,"not return");
+			// vTaskDelay(100);
+			// Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST)0;
+			// vTaskDelay(100);
+
+			OLED_Write(0,8,16,"wait!");
+			Camera_flag=0;
+			while(!Camera_flag) vTaskDelay(2);
+							
+			// err_cx = JiGuang[0] - Greenx - Greenx;
+			err_cx = JiGuang[0];
+			// err_cy = JiGuang[1] - Greeny;
+			err_cy = JiGuang[1] + Greeny * 3;
+			// OLED_Write(0,8,16,"x :%d  ", JiGuang[0]);
+			// OLED_Write(0,10,16,"y :%d  ", JiGuang[1]);
+			OLED_Write(0,8,16,"err_cx :%d  ", err_cx);
+			OLED_Write(0,10,16,"err_cy :%d  ", err_cy);
+
+			Erect_pid(&Serx,JiGuang[0],Greenx);
+			Erect_pid(&Sery,JiGuang[1],Greeny);
+			
+			delta_JiGuang = JiGuang[0] - last_x;
+			last_x = JiGuang[0];
+			last_y = JiGuang[1];
+			
+			if(Serx.out >0 )
+			Serx.out= Serx.out + 0.8f;
+			else if(Serx.out <0 )
+			Serx.out= Serx.out - 0.8f;
+			
+			if(Sery.out >0 )
+			Sery.out= Sery.out + 0.8f;
+			else if(Sery.out <0 )
+			Sery.out= Sery.out - 0.8f;
+			
+			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
+			Serx.out=Serx.out>(X_SPEED_MAX)?(X_SPEED_MAX):Serx.out;
+			Serx.out=Serx.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Serx.out;
+			
+			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
+			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
+			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
+
+			Speed_Control(Serx.out , YAW);
+
+			
+			// OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
+			// if (delta_JiGuang < 0.05 && delta_JiGuang > -0.05){
+			// 	num_second += 1;
+			// }
+			// if (num_second >= 20){
+			// 	Speed_Control(0 , YAW);
+			// 	OLED_Write(0,10,16,"success");
+			// 	GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
+			// 	while(1) vTaskDelay(10);
+			// }
+		}
+
 		else
 		{
 			Emm_V5_Stop_Now(0x01,false,UART_0_INST);
@@ -490,6 +560,24 @@ void line_task(void *pvParameters)
 		Motor_Write(0,0);
 		while (1) vTaskDelay(10);
 	}
+		vTaskDelay(2);
+	}
+	else if(Line_EN==3){
+		Line_Control();
+		if(distance > (1200000) )  
+			{
+				Motor_Write(0,0);
+				while (1) vTaskDelay(10);
+			}
+		vTaskDelay(2);
+	}
+	else if(Line_EN==4){
+		Line_Control();
+		if(distance > (2400000) )  
+			{
+				Motor_Write(0,0);
+				while (1) vTaskDelay(10);
+			}
 		vTaskDelay(2);
 	}
 	else
