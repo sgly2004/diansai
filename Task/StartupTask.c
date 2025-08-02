@@ -249,140 +249,58 @@ void main_task(void *pvParameters)
 		//�?二问
 		if(YunTai_EN==1)
 		{
-			//�?二问先进行开�?�?动一段距离到靶纸上再进�?�定�?
-			//�?以直接将摄像头�?�准靶纸，取消这部分开�?�?�?
 
-// 			if(yuntai_flag == 0)  
-// 			{
-// 			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
-// 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
-// 		    vTaskDelay(10);
-			
-// 			if(YunTai_EN == 1)  //�?二问给的初�?�位�?
-// 			{
-// 			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_1_INST);
-// 			vTaskDelay(10);
-// //			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST);
-// 			vTaskDelay(10);
-// //			POS_Control(30 , 5*256, PITCH);
-// //			vTaskDelay(100);	
-// 			POS_Control(-30 , 50*256, YAW);
-// 			vTaskDelay(10);
-// 			POS_Control(30 , 5*256, PITCH);
-// 			vTaskDelay(350);
-// 			yuntai_flag = 1;
-// 			}
-
-// //			if(YunTai_EN == 3)  //�?四问给的初�?�位�?
-// //			{
-// //			POS_Control(-30 , 70*256, YAW);
-// //			POS_Control(30 , 5*256, PITCH);
-// //			vTaskDelay(1000);
-// //			yuntai_flag = 1;
-// //			}				
-
-// 			}	
 			
 			//如果摄像头识�?到目标则开始运�?
-			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
+			// Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
-			
-			// UART1回零（只执�?�一次）
-			if(uart1_origin_done == 0) {
-				// Emm_V5_Origin_Trigger_Return(1, 0, false, UART_1_INST);
-				POS_Control(-30 , 5*256, PITCH);
-				vTaskDelay(100);
-				uart1_origin_done = 1;
-			}
-			// OLED_Write(0,8,16,"not return");
-			// vTaskDelay(100);
-			// Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_0_INST)0;
-			// vTaskDelay(100);
 
-			OLED_Write(0,8,16,"wait!");
+
+			// OLED_Write(0,8,16,"wait!");
 			Camera_flag=0;
 			while(!Camera_flag) vTaskDelay(2);
 							
-			// err_cx = JiGuang[0] - Greenx - Greenx;
 			err_cx = JiGuang[0];
-			// err_cy = JiGuang[1] - Greeny;
-			err_cy = JiGuang[1] + Greeny * 3;
-			// OLED_Write(0,8,16,"x :%d  ", JiGuang[0]);
-			// OLED_Write(0,10,16,"y :%d  ", JiGuang[1]);
-			OLED_Write(0,8,16,"err_cx :%d  ", err_cx);
-			OLED_Write(0,10,16,"err_cy :%d  ", err_cy);
 
 			Erect_pid(&Serx,JiGuang[0],Greenx);
-			Erect_pid(&Sery,JiGuang[1],Greeny);
 			
 			delta_JiGuang = JiGuang[0] - last_x;
 			last_x = JiGuang[0];
-			last_y = JiGuang[1];
+			// last_y = JiGuang[1];
 			
 			if(Serx.out >0 )
 			Serx.out= Serx.out + 0.8f;
 			else if(Serx.out <0 )
 			Serx.out= Serx.out - 0.8f;
 			
-			if(Sery.out >0 )
-			Sery.out= Sery.out + 0.8f;
-			else if(Sery.out <0 )
-			Sery.out= Sery.out - 0.8f;
+			// if(Sery.out >0 )
+			// Sery.out= Sery.out + 0.8f;
+			// else if(Sery.out <0 )
+			// Sery.out= Sery.out - 0.8f;
 			
 			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
 			Serx.out=Serx.out>(X_SPEED_MAX)?(X_SPEED_MAX):Serx.out;
 			Serx.out=Serx.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Serx.out;
 			
-			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
-			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
-			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
+			// if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
+			// Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
+			// Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
 
 			
-			OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
-			if (delta_JiGuang < 0.05 && delta_JiGuang > -0.05){
+			// OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
+			if (delta_JiGuang < 0.1 && delta_JiGuang > -0.1){
 				num_second += 1;
 			}
-			if (num_second >= 20){
+			if (num_second >= 5){
 				Speed_Control(0 , YAW);
-				OLED_Write(0,10,16,"success");
+				// OLED_Write(0,10,16,"success");
 				GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
 				while(1) vTaskDelay(10);
 			}
 
-			// if(err_cx < 170 && err_cx > -170){
-			// 	GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
-			// 	while(1) vTaskDelay(10);
-			// }
 
-			// OLED_Write(0,12,16,"YAW :%d  ", Serx.out);
-			// OLED_Write(0,14,16,"PITCH :%d  ", Sery.out);
-			
 			Speed_Control(Serx.out , YAW);
-			// Speed_Control(-Sery.out , PITCH);
-//			if(Line_EN ==1 )
-//			{
-//			 Speed_Control(Serx.out - 1 , YAW);
-//			}
-
-		// while(1) vTaskDelay(10);
-			
-			
-		// if(YunTai_EN == 3)  //�?四问
-		// {
-		// if(Serx.err <3 && open_line_falg==0 )
-		// {
-		// location_err_falg ++;
-		// if(location_err_falg > 50){
-		// Line_EN=1;
-		// open_line_falg=1;
-		// location_err_falg=0;
-		// }
-		// }
-		// }
-
 		}
-		
-		//�?三问
 		else if(YunTai_EN==2)
 		{
 			
@@ -390,24 +308,24 @@ void main_task(void *pvParameters)
 			{	
 			//这部分只运�?�一次，通过判断yuntai_flag来选择云台初�?�运动方向是左还�?�?
 			//yuntai_flag标志由按�?进�?�决定，在�??三问的菜单中，KEY4代表左运行，KEY3代表右运�?
-			Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
+			// Emm_V5_En_Control(1, true, false, UART_1_INST); // 电机使能控制
 	        Emm_V5_En_Control(1, true, false, UART_0_INST);
 		    vTaskDelay(10);
 				
 //			POS_Control(-30 , 50*256, YAW);
 //			POS_Control(30 , 5*256, PITCH); 
-			Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_1_INST);
-			vTaskDelay(100);
-			POS_Control(30 , 5*256, PITCH);
-			vTaskDelay(100);
+			// Emm_V5_Origin_Trigger_Return(1, 0, false ,UART_1_INST);
+			// vTaskDelay(100);
+			// POS_Control(30 , 5*256, PITCH);
+			// vTaskDelay(100);
 			yuntai_flag = 1;
 			}
 			
 			if(yuntai_flag == 1)  
 			{
 			//右运�?		
-			if(yutai_3_init_falg == 1)  Speed_Control(5, YAW);
-			else if(yutai_3_init_falg == 2)  Speed_Control(-5, YAW);
+			if(yutai_3_init_falg == 1)  Speed_Control(9, YAW);
+			else if(yutai_3_init_falg == 2)  Speed_Control(-9, YAW);
 			yuntai_flag = 2;	
 			}
 			
@@ -417,44 +335,44 @@ void main_task(void *pvParameters)
 			}
 							
 			err_cx = JiGuang[0] - Greenx;
-			err_cy = JiGuang[1] - Greeny;
+			// err_cy = JiGuang[1] - Greeny;
 			
 
 			Erect_pid(&Serx,JiGuang[0],Greenx);
-			Erect_pid(&Sery,JiGuang[1],Greeny);
+			// Erect_pid(&Sery,JiGuang[1],Greeny);
 
 			delta_JiGuang = JiGuang[0] - last_x;
 			
 			last_x = JiGuang[0];
-			last_y = JiGuang[1];
+			// last_y = JiGuang[1];
 			
 			if(Serx.out >0 )
 			Serx.out= Serx.out + 0.8f;
 			else if(Serx.out <0 )
 			Serx.out= Serx.out - 0.8f;
 			
-			if(Sery.out >0 )
-			Sery.out= Sery.out + 0.8f;
-			else if(Sery.out <0 )
-			Sery.out= Sery.out - 0.8f;
+			// if(Sery.out >0 )
+			// Sery.out= Sery.out + 0.8f;
+			// else if(Sery.out <0 )
+			// Sery.out= Sery.out - 0.8f;
 			
 			if( (err_cx > -ERR_RANGE && err_cx < ERR_RANGE) ) Serx.out=0;
 			Serx.out=Serx.out>(X_SPEED_MAX)?(X_SPEED_MAX):Serx.out;
 			Serx.out=Serx.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Serx.out;
 			
-			if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
-			Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
-			Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
+			// if( (err_cy > -ERR_RANGE && err_cy < ERR_RANGE) ) Sery.out=0;
+			// Sery.out=Sery.out>(X_SPEED_MAX)?(X_SPEED_MAX):Sery.out;
+			// Sery.out=Sery.out<(-X_SPEED_MAX)?(-X_SPEED_MAX):Sery.out;
 			
 			Speed_Control(Serx.out, YAW);
 			// Speed_Control(-Sery.out , PITCH);
-						OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
-			if (delta_JiGuang < 0.05 && delta_JiGuang > -0.05){
+						// OLED_Write(0,10,16,"delta_JiGuang :%d  ", delta_JiGuang);
+			if (delta_JiGuang < 0.1 && delta_JiGuang > -0.1){
 				num_second += 1;
 			}
-			if (num_second >= 20){
+			if (num_second >= 10){
 				Speed_Control(0 , YAW);
-				OLED_Write(0,10,16,"success");
+				// OLED_Write(0,10,16,"success");
 				GPIO_WriteBit(jiguangbi_PORT,jiguangbi_PIN_12_PIN,1);
 				while(1) vTaskDelay(10);
 			}
@@ -529,7 +447,7 @@ void main_task(void *pvParameters)
 		vTaskDelay(8);
 		}
 	}
-
+//0+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 int LINE_MODE =0;
@@ -553,7 +471,7 @@ void line_task(void *pvParameters)
 		vTaskDelay(2);
 	}
 	else if(Line_EN==3){
-		Line_Control();
+		Line_Control2();
 		if(distance > (1200000) )  
 			{
 				Motor_Write(0,0);
@@ -562,7 +480,7 @@ void line_task(void *pvParameters)
 		vTaskDelay(2);
 	}
 	else if(Line_EN==4){
-		Line_Control();
+		Line_Control2();
 		if(distance > (2400000) )  
 			{
 				Motor_Write(0,0);
@@ -588,9 +506,9 @@ void OLED_task(void *pvParameters)
 	{
 
 		//用法�?0(0-127)�?0(0-7)列，字体大小16，后面的用法参考printf，通过%d�?%f等进行打印数�?
-		// OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
-		// OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
-		// OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
+		OLED_Write(0,0,16,"HW1 :%d  ", HW_IO1);
+		 OLED_Write(0,2,16,"HW2 :%d  ", HW_IO2);
+		 OLED_Write(0,4,16,"HW3 :%d  ", HW_IO3);
 //		OLED_Write(0,6,16,"HW4 :%d  ", KEY1);
 //		OLED_Write(0,2,16,"x:%d y:%d  ", JiGuang[0], JiGuang[1]);
 //		OLED_Write(0,4,16,"fps :%d  ", (int)KEY1);

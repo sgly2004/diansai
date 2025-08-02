@@ -152,6 +152,7 @@ void Line_Control(void)
     if(Line[3] == 0){
 		//vTaskDelay(60);
 	//	while (HW_IO3 == 0) vTaskDelay(2);
+
 		Motor_Write(SPEED_UP,-1);
 		vTaskDelay(80);
 		while (HW_IO3 == 1) vTaskDelay(50);
@@ -161,6 +162,7 @@ void Line_Control(void)
     else if(Line[0] == 0){
 	//vTaskDelay(100);
 //	while (HW_IO2 == 0) vTaskDelay(2);
+
 	Motor_Write(-1,SPEED_UP);	
 	vTaskDelay(80);
 	while (HW_IO2 == 1) vTaskDelay(50);
@@ -180,6 +182,8 @@ void Line_Control2(void)
 		//	vTaskDelay(60);
 		is_turning = 1;
 	//	while (HW_IO3 == 0) vTaskDelay(2);
+		Speed_Control(10 , YAW);
+	// vTaskDelay(60);
 		Motor_Write(SPEED_UP2,-1);
 		vTaskDelay(80);
 		while (HW_IO3 == 1) vTaskDelay(50);
@@ -191,6 +195,8 @@ void Line_Control2(void)
 	//vTaskDelay(100);
 	is_turning = 1;
 //	while (HW_IO2 == 0) vTaskDelay(2);
+	Speed_Control(-10 , YAW);
+	// vTaskDelay(60);
 	Motor_Write(-1,SPEED_UP2);	
 	vTaskDelay(80);
 	while (HW_IO2 == 1) vTaskDelay(50);

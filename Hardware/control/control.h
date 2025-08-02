@@ -10,7 +10,7 @@
 
 
 #define SPEED2    1500            //直线速度
-#define SPEED_UP2    1500            //转弯速度
+#define SPEED_UP2    1000            //转弯速度
 #define GAIN2     550             //偏差增益
 #define GAIN_K2   2               //大角度偏差增益
 
@@ -45,6 +45,7 @@ float Erect_pid(struct PID* para,float hope, float now);
 void PID_Init(void);
 void Motor_Open(int Mode);
 void Line_Control(void);
+void Line_Control2(void);
 void Get_hw(void);
 
 void Set_PID_1(void);
